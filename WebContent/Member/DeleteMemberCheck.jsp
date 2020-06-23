@@ -11,6 +11,7 @@
 <form action="/tunnmals/MemberResignServlet" method="post">
 	本当に退会しますか？
 	<br>
+	<input type="hidden" name="action" value="complete">
 	<input type="submit" value="退会する">
 
 </form>

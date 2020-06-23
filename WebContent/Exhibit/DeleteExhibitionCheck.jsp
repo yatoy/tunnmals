@@ -14,14 +14,14 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>出品更新確認画面</title>
+<title>出品削除画面</title>
 </head>
 <body>
 	<div class="container">
 		<div class="alert alert-dark">
-			以下の情報でよろしいですか？
+			以下の商品を削除してよろしいですか？
 		</div>
-		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
+		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
 
 			商品情報<br>
 			<div>
@@ -39,8 +39,8 @@
 			<p>価格</p>
 			<p>*******</p>
 			</div>
-			<input type="hidden" name="action" value="update">
-			<input class="btn btn-success" type="submit" value="更新する">
+			<input type="hidden" name="action" value="complete">
+			<input class="btn btn-success" type="submit" value="削除する">
 
 		</form>
 

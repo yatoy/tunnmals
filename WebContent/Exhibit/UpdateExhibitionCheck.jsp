@@ -14,14 +14,14 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>購入確認画面</title>
+<title>出品更新確認画面</title>
 </head>
 <body>
 	<div class="container">
 		<div class="alert alert-dark">
 			以下の情報でよろしいですか？
 		</div>
-		<form action="/tunnmals/PurchaseRegisterServlet" method="post">
+		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
 
 			商品情報<br>
 			<div>
@@ -30,6 +30,8 @@
 			<p>5555555567</p>
 			<p>タイトル</p>
 			<p>******</p>
+			<p>著者</p>
+			<p>*****</p>
 			<p>分類</p>
 			<p>*****</p>
 			<p>状態</p>
@@ -37,14 +39,8 @@
 			<p>価格</p>
 			<p>*******</p>
 			</div>
-			お届け先氏名（必須）：*** ***<br>
-			お届け先ご住所（必須）：〒***-****
-			**********************************<br>
-			ご連絡先（必須）：***-****-****<br>
-			メールアドレス：*************@************<br>
-			支払方法（必須）：銀行振込<br>
-			<input type="hidden" name="action" value="purchase">
-			<input class="btn btn-success" type="submit" value="購入する">
+			<input type="hidden" name="action" value="complete">
+			<input class="btn btn-success" type="submit" value="更新する">
 
 		</form>
 
