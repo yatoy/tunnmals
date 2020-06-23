@@ -12,9 +12,19 @@
 
 <h1>新規会員登録</h1>
 
+<%
+String type = request.getParameter("action");
+String message="";
+if ("check".equals(type)) {
+	message="必須項目を入力してください";
+}
+%>
+
+<%= message%>
+
 <h2>登録する情報を入力してください</h2>
 
-<form action="/tonnmals/MemberRegisterServlet" method="post">
+<form action="/tunnmals/MemberRegisterServlet" method="post">
 氏名<input type="text" name="family_name"><input type="text" name="first_name"><br>
 郵便番号<input type="text" name="postal"><br>
 住所<input type="text" name="address"><br>
