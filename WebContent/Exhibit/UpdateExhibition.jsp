@@ -51,6 +51,7 @@
 			<option value="10">農学部系</option>
 			</select>
 			<br>
+			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
 		</form>
 

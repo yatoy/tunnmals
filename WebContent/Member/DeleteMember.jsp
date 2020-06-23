@@ -15,6 +15,7 @@
 	パスワード :
 	<input type="text" name="password">
 	<br>
+	<input type="hidden" name="action" value="check">
 	<input type="submit" value="退会確認画面へ">
 
 </form>

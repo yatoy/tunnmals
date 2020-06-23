@@ -35,7 +35,7 @@
 			<input type="text" name="email"><br>
 			支払方法（必須）：
 			<input type="radio" name="size" value="bank">銀行振込<br>
-			<input type="hidden" name="action" value="kakunin">
+			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
 
 		</form>
