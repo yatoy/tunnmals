@@ -14,10 +14,10 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>購入完了画面</title>
+<title>削除完了画面</title>
 </head>
 <body>
-購入しました。<br>
+出品情報を削除しました。<br>
 <a href="/tunnmals/ExhibitDisplayServlet">出品一覧に戻る</a>
 </body>
 </html>

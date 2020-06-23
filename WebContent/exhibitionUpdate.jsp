@@ -14,14 +14,14 @@
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>出品情報入力画面</title>
+<title>出品情報更新画面</title>
 </head>
 <body>
 	<div class="container">
 		<div class="alert alert-dark">
-		以下の情報を入力してください。<br>
+		変更する内容を入力してください。<br>
 		</div>
-		<form action="/tunnmals/ExhibitRegisterServlet" method="post">
+		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
 			画像：<img height="100" width="100" src="/tunnmals/noimage.png"><br>
 			タイトル（必須）：<br><input type="text" name="book_name"><br>
 			ISBN番号（必須）：<input type="text" name="isbn"><br>

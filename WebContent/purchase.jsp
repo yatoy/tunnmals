@@ -21,7 +21,7 @@
 		<div class="alert alert-dark">
 			<h1>お客様情報入力画面</h1>
 		</div>
-		<form action="/tonnmals/PurchaseRegisterServlet" method="post">
+		<form action="/tunnmals/PurchaseRegisterServlet" method="post">
 
 			お届け先氏名（必須）：<br>
 			<input type="text" name="family_name">
