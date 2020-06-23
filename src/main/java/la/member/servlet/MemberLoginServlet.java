@@ -72,7 +72,7 @@ public class MemberLoginServlet extends HttpServlet {
 				bean = dao.searchByIdPassword(id, password);
 
 				// ユーザとパスワード一致でログイン処理
-				if(id==bean.getId() && password == bean.getPassword()) {
+				if(bean != null) {
 
 					// セッション管理
 					HttpSession loginsession = request.getSession();
