@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
 
-
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,7 @@
 <h1>会員登録完了</h1>
 
 <h2>会員登録が完了しました</h2>
+あなたの会員番号は${id}です
 
 <h3>下のボタンを押すと<br>マイページに進みます</h3>
 

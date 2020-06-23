@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 
+String id = request.getParameter("id");
 String family_name = request.getParameter("family_name");
 String first_name = request.getParameter("first_name");
 String postal = request.getParameter("postal");
@@ -16,6 +17,7 @@ if( password == null || "".equals(password)){
 	password = request.getParameter("password");
 	message="パスワード未変更";
 }
+String register_date = request.getParameter("register_date");
 
 %>
 
@@ -39,6 +41,8 @@ if( password == null || "".equals(password)){
 Eメールアドレス<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
 生年月日<input type="date" name="birthday" readonly="readonly" value="<%=birthday%>"><br>
 設定パスワード<input type="password" name="password" readonly="readonly" value="<%=password%>">（<%= message%>）<br>
+<input type="hidden" name="register_date" value="<%= register_date%>">
+
 
 <input type="submit" value="前ページに戻る">
 <input type="submit" value="会員情報の変更">

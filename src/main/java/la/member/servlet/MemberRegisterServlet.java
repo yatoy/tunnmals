@@ -99,13 +99,14 @@ public class MemberRegisterServlet extends HttpServlet {
 		//memberテーブルに追加
 
 		Calendar cal = Calendar.getInstance(); //[1]
-		String register_date = cal.get(Calendar.YEAR) + "_" + cal.get(Calendar.MONTH) + "_" + cal.get(Calendar.DATE);
+		String register_date = cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DATE);
 
 		MemberDao dao = new MemberDao();
 		MemberBeans bean = new MemberBeans(family_name, first_name, postal, address, tel, email,
 				birthday, password, register_date);
 		dao.add(bean);
 		int id = bean.getId();
+		request.setAttribute("id", id);
 		gotoPage(request, response, "/Member/MemberRegisterComplete.jsp");
 	}
 

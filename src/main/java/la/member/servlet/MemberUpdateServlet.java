@@ -66,7 +66,7 @@ public class MemberUpdateServlet extends HttpServlet {
 	protected void doCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String id = request.getParameter("id");
+		int id = Integer.parseInt(request.getParameter("id"));
 		String family_name = request.getParameter("family_name");
 		String first_name = request.getParameter("first_name");
 		String postal = request.getParameter("postal");
@@ -99,6 +99,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		bean = dao.searchById(id);
 
 		if (password1.equals(password2) && password.equals(bean.getPassword())) {
+			request.setAttribute("member", bean);
 			gotoPage(request, response, "/Member/MemberRegisterCheck.jsp");
 		}
 
@@ -106,6 +107,7 @@ public class MemberUpdateServlet extends HttpServlet {
 
 	protected void doComplete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
 		String family_name = request.getParameter("family_name");
 		String first_name = request.getParameter("first_name");
 		String postal = request.getParameter("postal");
@@ -114,14 +116,15 @@ public class MemberUpdateServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String birthday = request.getParameter("birthday");
 		String password = request.getParameter("password");
+		String register_date = request.getParameter("register_date");
 
 		//memberテーブルに追加
 		MemberDao dao = new MemberDao();
 		Calendar cal = Calendar.getInstance(); //[1]
 
-		String change_date = cal.get(Calendar.YEAR) + "_" + cal.get(Calendar.MONTH) + "_" + cal.get(Calendar.DATE);
-		MemberBeans bean = new MemberBeans(family_name, first_name, postal, address, tel, email,
-				birthday, password, change_date);
+		String change_date = cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DATE);
+		MemberBeans bean = new MemberBeans(id, family_name, first_name, postal, address, tel, email,
+				birthday, password, register_date, change_date);
 		dao.update(bean);
 		gotoPage(request, response, "/Member/MemberRegisterComplete.jsp");
 	}

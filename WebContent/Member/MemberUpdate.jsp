@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 
+String id = request.getParameter("id");
 String family_name = request.getParameter("family_name");
 String first_name = request.getParameter("first_name");
 String postal = request.getParameter("postal");
@@ -10,7 +11,7 @@ String address = request.getParameter("address");
 String tel = request.getParameter("tel");
 String email = request.getParameter("email");
 String birthday = request.getParameter("birthday");
-String password = request.getParameter("password1");
+String password = request.getParameter("password");
 
 %>
 <!DOCTYPE html>
@@ -36,6 +37,9 @@ Eメールアドレス<input type="email" name="<%= email%>"><br>
 設定パスワード（再確認）<input type="password" name="password2"><br>
 <br>
 現在のパスワード<input type="password" name="password"><br>
+
+<input type="hidden" name="id" value="<%= id%>">
+
 <input type="hidden" name="action" value="check">
 <input type="submit" value="戻る">
 <input type="submit" value="登録情報の変更">
