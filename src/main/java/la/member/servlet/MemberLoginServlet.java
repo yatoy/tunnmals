@@ -37,7 +37,7 @@ public class MemberLoginServlet extends HttpServlet {
 		//		PrintWriter out = response.getWriter();
 
 		try {
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/Memberlogin.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");
 			rd.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
