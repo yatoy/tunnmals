@@ -61,7 +61,16 @@ public class ExhibitDao {
 
 	public ExhibitBeans add(ExhibitBeans bean) {
 
-		String sql = "INSERT INTO exhibit(book_name, isbn,price,author,quality,class,seller_id,sell_date) VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO exhibit("
+				+ "book_name, "
+				+ "isbn,"
+				+ "price,"
+				+ "author,"
+				+ "quality,"
+				+ "class,"
+				+ "seller_id,"
+				+ "sell_date"
+				+ ") VALUES(?,?,?,?,?,?,?,?)";
 
 		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
 				PreparedStatement st = con.prepareStatement(sql);) {

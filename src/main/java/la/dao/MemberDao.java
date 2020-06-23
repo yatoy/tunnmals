@@ -95,7 +95,17 @@ public class MemberDao {
 
 	public MemberBeans add(MemberBeans bean) {
 
-		String sql = "INSERT INTO member(family_name, first_name,postal,address,tel,email,birthday,password,register_date) VALUES(?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO member("
+				+ "family_name, "
+				+ "first_name,"
+				+ "postal,"
+				+ "address,"
+				+ "tel,"
+				+ "email,"
+				+ "birthday,"
+				+ "password,"
+				+ "register_date"
+				+ ") VALUES(?,?,?,?,?,?,?,?,?)";
 
 		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
 				PreparedStatement st = con.prepareStatement(sql);) {
