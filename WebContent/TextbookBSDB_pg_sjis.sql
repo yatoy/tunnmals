@@ -20,11 +20,8 @@ CREATE TABLE member (
     change_date DATE
 );
 
-INSERT INTO member VALUES(1,'����', '�˂�','1111111','�����s', '03-1111-1111','katou@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(2,'�c��', '���Ԃ�','2222222','�����s', '03-2222-2222','tanaka@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(3,'���', '������','3333333','��錧','03-3333-3333','suzuki@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(4,'����', '����','4444444','���挧', '03-4444-4444','satou@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(5,'�؊�', '����','5555555','������', '03-5555-5555','kima@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
+SELECT setval('member_id_seq', 3);
+
 
 ALTER TABLE member OWNER TO student;
 
@@ -44,11 +41,7 @@ CREATE TABLE exhibit (
     payment_method VARCHAR(20)
 );
 
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('�����؂��痎����', 1111111111111,111,'��','�V�i','���w���n', 1,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('�؂ɐ^��', 2222222222222,222,'��','����','����w���n', 2,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('�S���҂��҂��', 3333333333333,333,'�E�T�M','���g�p','�@�w���n',3,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('�T�ƃE�T�M', 4444444444444,444,'�T','����','�Љ�w���n', 4,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('���˂ɂ܂܂��',5555555555555 ,555,'����','�V�i','�o�ϊw���n ', 5,DATE '1961-06-16');
+SELECT setval('exhibit_book_id_seq', 6);
 
 ALTER TABLE exhibit OWNER TO student;
 
