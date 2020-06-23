@@ -19,6 +19,11 @@ public class MemberBeans implements Serializable {
 		setChange_date(change_date);
 	}
 
+	public MemberBeans(String family_name, String first_name, String postal, String address, String tel,
+			String email, String birthday, String password, String register_date) {
+		this(0, family_name, first_name, postal, address, tel, email, birthday, password, register_date, null);
+	}
+
 	public MemberBeans(int id, String family_name, String first_name, String postal, String address, String tel,
 			String email, String birthday, String password, String register_date) {
 		this(id, family_name, first_name, postal, address, tel, email, birthday, password, register_date, null);

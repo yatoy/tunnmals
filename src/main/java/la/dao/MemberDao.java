@@ -95,21 +95,20 @@ public class MemberDao {
 
 	public MemberBeans add(MemberBeans bean) {
 
-		String sql = "INSERT INTO member VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO member(family_name, first_name,postal,address,tel,email,birthday,password,register_date) VALUES(?,?,?,?,?,?,?,?,?)";
 
 		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
 				PreparedStatement st = con.prepareStatement(sql);) {
 
-			st.setInt(1, bean.getId());
-			st.setString(2, bean.getFamily_name());
-			st.setString(3, bean.getFirst_name());
-			st.setString(4, bean.getPostal());
-			st.setString(5, bean.getAddress());
-			st.setString(6, bean.getTel());
-			st.setString(7, bean.getEmail());
-			st.setDate(8, Date.valueOf(bean.getBirthday()));
-			st.setString(9, bean.getPassword());
-			st.setDate(10, Date.valueOf(bean.getRegister_date()));
+			st.setString(1, bean.getFamily_name());
+			st.setString(2, bean.getFirst_name());
+			st.setString(3, bean.getPostal());
+			st.setString(4, bean.getAddress());
+			st.setString(5, bean.getTel());
+			st.setString(6, bean.getEmail());
+			st.setDate(7, Date.valueOf(bean.getBirthday()));
+			st.setString(8, bean.getPassword());
+			st.setDate(9, Date.valueOf(bean.getRegister_date()));
 
 			st.executeUpdate();
 
@@ -117,7 +116,7 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 
-		return searchById(bean.getId());
+		return searchById(max());
 	}
 
 	public void delete(int id, String password) {
@@ -139,8 +138,40 @@ public class MemberDao {
 	}
 
 	public MemberBeans update(MemberBeans bean) {
-		delete(bean.getId(), bean.getPassword());
-		return add(bean);
+		String sql = "UPDATE member SET "
+				+ "family_name=?,"
+				+ "first_name=?,"
+				+ "postal=?,"
+				+ "address=?,"
+				+ "tel=?,"
+				+ "email=?,"
+				+ "birthday=?,"
+				+ "password=?,"
+				+ "register_date=?,"
+				+ "change_date=?"
+				+ " WHERE id=?";
+
+		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
+				PreparedStatement st = con.prepareStatement(sql);) {
+
+			st.setString(1, bean.getFamily_name());
+			st.setString(2, bean.getFirst_name());
+			st.setString(3, bean.getPostal());
+			st.setString(4, bean.getAddress());
+			st.setString(5, bean.getTel());
+			st.setString(6, bean.getEmail());
+			st.setDate(7, Date.valueOf(bean.getBirthday()));
+			st.setString(8, bean.getPassword());
+			st.setDate(9, Date.valueOf(bean.getRegister_date()));
+			st.setDate(10, Date.valueOf(bean.getChange_date()));
+			st.setInt(11, bean.getId());
+
+			st.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return searchById(bean.getId());
 	}
 
 	public List<MemberBeans> searchAll() {
@@ -175,6 +206,25 @@ public class MemberDao {
 		}
 
 		return list;
+	}
+
+	public int max() {
+		String sql = "SELECT max(id) from member";
+		int max = 0;
+
+		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
+				PreparedStatement st = con.prepareStatement(sql);) {
+			try (ResultSet rs = st.executeQuery();) {
+				rs.next();
+				max = rs.getInt("max");
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return max;
 	}
 
 }

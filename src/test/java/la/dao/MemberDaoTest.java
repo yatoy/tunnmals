@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,12 +56,11 @@ class MemberDaoTest extends MemberDao {
 	void testAdd() {
 		MemberDao dao = new MemberDao();
 
-		MemberBeans bean = new MemberBeans(4, "佐藤", "かめ", "4444444", "鳥取県", "03-4444-4444", "satou@text.net",
+		MemberBeans bean = new MemberBeans("佐藤", "かめ", "4444444", "鳥取県", "03-4444-4444", "satou@text.net",
 				"2020-04-30", "12345678", "2022-03-21");
 
 		bean = dao.add(bean);
 
-		Assertions.assertEquals(4, bean.getId());
 		Assertions.assertEquals("佐藤", bean.getFamily_name());
 		Assertions.assertEquals("かめ", bean.getFirst_name());
 		Assertions.assertEquals("4444444", bean.getPostal());
@@ -79,12 +77,22 @@ class MemberDaoTest extends MemberDao {
 	void testUpdate() {
 		MemberDao dao = new MemberDao();
 
-		MemberBeans bean = new MemberBeans(4, "佐藤", "かめごろう", "4444444", "鳥取県", "03-4444-4444", "satou@text.net",
-				"2020-04-30", "12345678", "2022-03-21");
+		MemberBeans bean = new MemberBeans(
+				3,
+				"佐藤",
+				"かめごろう",
+				"4444444",
+				"鳥取県",
+				"03-4444-4444",
+				"satou@text.net",
+				"2020-04-30",
+				"12345678",
+				"2022-03-21",
+				"2022-03-21");
 
-		dao.update(bean);
+		bean = dao.update(bean);
 
-		Assertions.assertEquals(4, bean.getId());
+		Assertions.assertEquals(3, bean.getId());
 		Assertions.assertEquals("佐藤", bean.getFamily_name());
 		Assertions.assertEquals("かめごろう", bean.getFirst_name());
 		Assertions.assertEquals("4444444", bean.getPostal());
@@ -94,7 +102,7 @@ class MemberDaoTest extends MemberDao {
 		Assertions.assertEquals("2020-04-30", bean.getBirthday());
 		Assertions.assertEquals("12345678", bean.getPassword());
 		Assertions.assertEquals("2022-03-21", bean.getRegister_date());
-		Assertions.assertEquals(null, bean.getChange_date());
+		Assertions.assertEquals("2022-03-21", bean.getChange_date());
 	}
 
 	@Test
@@ -108,34 +116,10 @@ class MemberDaoTest extends MemberDao {
 	}
 
 	@Test
-	void testSearchAll() {
+	void testMax() {
 		MemberDao dao = new MemberDao();
 
-		List<MemberBeans> list = dao.searchAll();
-
-		Assertions.assertEquals(1, list.get(0).getId());
-		Assertions.assertEquals("加藤", list.get(0).getFamily_name());
-		Assertions.assertEquals("ねこ", list.get(0).getFirst_name());
-		Assertions.assertEquals("1111111", list.get(0).getPostal());
-		Assertions.assertEquals("東京都", list.get(0).getAddress());
-		Assertions.assertEquals("03-1111-1111", list.get(0).getTel());
-		Assertions.assertEquals("katou@text.net", list.get(0).getEmail());
-		Assertions.assertEquals("2013-09-04", list.get(0).getBirthday());
-		Assertions.assertEquals("12345678", list.get(0).getPassword());
-		Assertions.assertEquals("2020-09-04", list.get(0).getRegister_date());
-		Assertions.assertEquals(null, list.get(0).getChange_date());
-
-		Assertions.assertEquals(2, list.get(1).getId());
-		Assertions.assertEquals("田中", list.get(1).getFamily_name());
-		Assertions.assertEquals("子豚", list.get(1).getFirst_name());
-		Assertions.assertEquals("2222222", list.get(1).getPostal());
-		Assertions.assertEquals("東京都", list.get(1).getAddress());
-		Assertions.assertEquals("03-2222-2222", list.get(1).getTel());
-		Assertions.assertEquals("tanaka@text.net", list.get(1).getEmail());
-		Assertions.assertEquals("2013-09-04", list.get(1).getBirthday());
-		Assertions.assertEquals("12345678", list.get(1).getPassword());
-		Assertions.assertEquals("2020-09-04", list.get(1).getRegister_date());
-		Assertions.assertEquals(null, list.get(1).getChange_date());
+		Assertions.assertEquals(3, dao.max());
 	}
 
 	@BeforeEach

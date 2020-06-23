@@ -20,11 +20,11 @@ CREATE TABLE member (
     change_date DATE
 );
 
-INSERT INTO member VALUES(1,'‰Á“¡', '‚Ë‚±','1111111','“Œ‹“s', '03-1111-1111','katou@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(2,'“c’†', '‚±‚Ô‚½','2222222','“Œ‹“s', '03-2222-2222','tanaka@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(3,'—é–Ø', '‚¤‚³‚¬','3333333','ˆïéŒ§','03-3333-3333','suzuki@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(4,'²“¡', '‚©‚ß','4444444','’¹æŒ§', '03-4444-4444','satou@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
-INSERT INTO member VALUES(5,'–ØŠÔ', '‚«‚Â‚Ë','5555555','“‡ªŒ§', '03-5555-5555','kima@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
+INSERT INTO member VALUES(1,'ï¿½ï¿½ï¿½ï¿½', 'ï¿½Ë‚ï¿½','1111111','ï¿½ï¿½ï¿½ï¿½ï¿½s', '03-1111-1111','katou@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
+INSERT INTO member VALUES(2,'ï¿½cï¿½ï¿½', 'ï¿½ï¿½ï¿½Ô‚ï¿½','2222222','ï¿½ï¿½ï¿½ï¿½ï¿½s', '03-2222-2222','tanaka@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
+INSERT INTO member VALUES(3,'ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','3333333','ï¿½ï¿½éŒ§','03-3333-3333','suzuki@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
+INSERT INTO member VALUES(4,'ï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½ï¿½ï¿½','4444444','ï¿½ï¿½ï¿½æŒ§', '03-4444-4444','satou@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
+INSERT INTO member VALUES(5,'ï¿½ØŠï¿½', 'ï¿½ï¿½ï¿½Â‚ï¿½','5555555','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', '03-5555-5555','kima@text.net', DATE '1961-06-16','12345678',DATE '1961-06-16');
 
 ALTER TABLE member OWNER TO student;
 
@@ -39,16 +39,16 @@ CREATE TABLE exhibit (
     class VARCHAR(10) NOT NULL,
     seller_id INTEGER NOT NULL,
     sell_date DATE NOT NULL,
-    buyer_id INTEGER,
+    buyer_id INTEGER DEFAULT 0,
     buy_date DATE,
     payment_method VARCHAR(20)
 );
 
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('‰‚à–Ø‚©‚ç—‚¿‚é', 1111111111111,111,'‰','V•i','•¶Šw•”Œn', 1,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('“Ø‚É^ì', 2222222222222,222,'“Ø','’†ŒÃ','‹³ˆçŠw•”Œn', 2,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('S‚ª‚Ò‚å‚ñ‚Ò‚å‚ñ', 3333333333333,333,'ƒEƒTƒM','–¢g—p','–@Šw•”Œn',3,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('‹T‚ÆƒEƒTƒM', 4444444444444,444,'‹T','’†ŒÃ','Ğ‰ïŠw•”Œn', 4,DATE '1961-06-16');
-INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('‚«‚Â‚Ë‚É‚Â‚Ü‚Ü‚ê‚é',5555555555555 ,555,'‚«‚Â‚Ë','V•i','ŒoÏŠw•”Œn ', 5,DATE '1961-06-16');
+INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('ï¿½ï¿½ï¿½ï¿½ï¿½Ø‚ï¿½ï¿½ç—ï¿½ï¿½ï¿½ï¿½', 1111111111111,111,'ï¿½ï¿½','ï¿½Vï¿½i','ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½n', 1,DATE '1961-06-16');
+INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('ï¿½Ø‚É^ï¿½ï¿½', 2222222222222,222,'ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½n', 2,DATE '1961-06-16');
+INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('ï¿½Sï¿½ï¿½ï¿½Ò‚ï¿½ï¿½Ò‚ï¿½ï¿½', 3333333333333,333,'ï¿½Eï¿½Tï¿½M','ï¿½ï¿½ï¿½gï¿½p','ï¿½@ï¿½wï¿½ï¿½ï¿½n',3,DATE '1961-06-16');
+INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('ï¿½Tï¿½ÆƒEï¿½Tï¿½M', 4444444444444,444,'ï¿½T','ï¿½ï¿½ï¿½ï¿½','ï¿½Ğ‰ï¿½wï¿½ï¿½ï¿½n', 4,DATE '1961-06-16');
+INSERT INTO exhibit(book_name,isbn,price,author,quality,class,seller_id,sell_date) VALUES('ï¿½ï¿½ï¿½Â‚Ë‚É‚Â‚Ü‚Ü‚ï¿½ï¿½',5555555555555 ,555,'ï¿½ï¿½ï¿½Â‚ï¿½','ï¿½Vï¿½i','ï¿½oï¿½ÏŠwï¿½ï¿½ï¿½n ', 5,DATE '1961-06-16');
 
 ALTER TABLE exhibit OWNER TO student;
 
