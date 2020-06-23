@@ -17,7 +17,11 @@
 <title>購入完了画面</title>
 </head>
 <body>
+
 購入しました。<br>
-<a href="/tunnmals/ExhibitDisplayServlet">出品一覧に戻る</a>
+<form action="/tunnmals/ExhibitDisplayServlet" method="get">
+<input type="submit" value="出品一覧に戻る">
+</form>
+
 </body>
 </html>
