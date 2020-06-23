@@ -1,7 +1,10 @@
-package la.servlet;
+package la.dao;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import la.bean.AdminBeans;
+import la.dao.AdminDao;
 
 class AdminDaoTest extends AdminDao {
 

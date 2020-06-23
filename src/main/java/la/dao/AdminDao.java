@@ -1,10 +1,12 @@
-package la.servlet;
+package la.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import la.bean.AdminBeans;
 
 public class AdminDao {
 	private final String url = "jdbc:postgresql:textbookbsdb";
