@@ -13,11 +13,11 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<div class="card text-center">
+<div class="card">
+	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-<img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
 	  <div class="card-header">
-		<h1><p class="font-italic">Study Market</p></h1>
+		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
 
@@ -31,6 +31,7 @@
 	<form action="/tunnmals/MemberLoginServlet" method="get">
 	<input type="submit" value="ログインページ">
 	</form>
+	</div>
 </div>
 </body>
 </html>

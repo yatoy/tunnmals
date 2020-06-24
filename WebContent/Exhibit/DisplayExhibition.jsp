@@ -1,20 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Admin Login</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>購入完了画面</title>
 </head>
 <body>
 <div class="card">
@@ -25,10 +18,23 @@
 	  </div>
 	</div>
 	</div>
-購入しました。<br>
-<form action="/tunnmals/ExhibitDisplayServlet" method="get">
-<input type="submit" value="出品一覧に戻る">
-</form>
+	<a href="/tunnmals/AdminLoginServlet">マイページに戻る</a>
+	<br>
+	<div>
+		<img height="100" width="100" src="/tunnmals/noimage.png">
+		<p>タイトル</p>
+		<p>ISBN番号</p>
+		<p>販売価格</p>
+		<p>著者</p>
+		<p>状態</p>
+		<p>分類</p>
+		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
+			<input type="hidden" name="action" value="check">
+			<input type="submit" value="削除">
+		</form>
+	</div>
+
+
 </div>
 </body>
 </html>

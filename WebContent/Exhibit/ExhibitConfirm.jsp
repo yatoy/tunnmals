@@ -17,6 +17,14 @@
 <title>出品確認画面</title>
 </head>
 <body>
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
+	</div>
 	<div class="container">
 		<div class="alert alert-dark">
 			以下の情報でよろしいですか？
@@ -45,6 +53,6 @@
 		</form>
 
 	</div>
-
+</div>
 </body>
 </html>

@@ -11,13 +11,14 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<div class="card text-center">
+<div class="card">
+	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
 	  <div class="card-header">
-		<h1>Study Market</h1>
+		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
-</div>
+	</div>
 
 <h1>会員情報表示</h1>
 
@@ -36,5 +37,7 @@
 <input type="submit" value="退会">
 </form>
 
+<br>
+</div>
 </body>
 </html>

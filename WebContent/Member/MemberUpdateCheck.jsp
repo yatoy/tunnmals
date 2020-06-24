@@ -26,12 +26,20 @@ String register_date = request.getParameter("register_date");
 <head>
 <meta charset="UTF-8">
 <title>会員情報確認</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
 <h1>会員情報変更の確認</h1>
-
-<form action="/tonnmals/MemberServlet" method="get">
+	</div>
+<form action="/tunnmals/MemberServlet" method="get">
 氏名
 <input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
 <input type="text" name="first_name" readonly="readonly" value="<%=first_name%>"><br>
@@ -48,5 +56,7 @@ Eメールアドレス<input type="email" name="email" readonly="readonly" value
 <input type="submit" value="会員情報の変更">
 </form>
 
+<br>
+</div>
 </body>
 </html>

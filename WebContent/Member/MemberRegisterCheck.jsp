@@ -24,18 +24,18 @@ String password = request.getParameter("password1");
 
 </head>
 <body>
-<div class="card text-center">
+<div class="card">
+	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-<img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
 	  <div class="card-header">
-		<h1 class="font-italic">Study Market</h1>
+		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
 
-	<h1>新規会員登録</h1>
+	<h2>新規会員登録</h2>
 
-	<h2></h2>
-
+	</div>
+	<h3>以下の情報でよろしいですか？</h3>
 	<form action="/tunnmals/MemberRegisterServlet" method="post">
 	氏名
 	<input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
