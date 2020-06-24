@@ -72,7 +72,6 @@ public class ExhibitUpdateServlet extends HttpServlet {
 			doComplete(request, response);
 			return;
 		}
-
 		doGet(request, response);
 	}
 
