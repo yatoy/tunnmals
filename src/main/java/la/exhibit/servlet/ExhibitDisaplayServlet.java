@@ -68,7 +68,6 @@ public class ExhibitDisaplayServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
 			rd.forward(request, response);
 
-		}	}
-
-
+		}
+	}
 }
