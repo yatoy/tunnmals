@@ -21,25 +21,23 @@ public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public AdminLoginServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		//		PrintWriter out = response.getWriter();
 
 		try {
-			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminMenu.jsp");
-			rd.forward(request, response);
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
+				rd.forward(request, response);
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
+				rd.forward(request, response);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");
@@ -80,7 +78,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 					// ログイン済みの属性設定
 					session.setAttribute("isLogin", "true");
-					session.setAttribute("id", id);
+					session.setAttribute("admin_id", id);
 
 					// マイページへ戻る
 					RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminMenu.jsp");

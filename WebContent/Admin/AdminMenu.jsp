@@ -11,7 +11,7 @@
 <h1>Study Market</h1>
 <a href="/tunnmals/MemberListServlet">全会員の表示</a>
 <br>
-<a href="/tunnmals/ExhibitDisplayServlet">出品の表示</a>
+<a href="/tunnmals/AdminExhibitDisplayServlet">出品の表示</a>
 <br>
 <a href="/tunnmals/PurchaseDisplayServlet">購入履歴の表示</a>
 <br>

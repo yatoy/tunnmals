@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 
 	<h1>Study Market</h1>
 	<a href="/tunnmals/AdminLoginServlet">管理者用ページに戻る</a>
-	<br>
+	<c:forEach items="${exhibits}" var="exhibit">
 	<div>
 		<img height="100" width="100" src="/tunnmals/noimage.png">
 		<p>タイトル</p>
@@ -24,6 +26,7 @@
 			<input type="submit" value="削除">
 		</form>
 	</div>
+	</c:forEach>
 
 
 

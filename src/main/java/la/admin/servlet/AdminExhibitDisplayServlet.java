@@ -1,4 +1,4 @@
-package la.exhibit.servlet;
+package la.admin.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,7 +18,7 @@ import la.dao.ExhibitDao;
  * Servlet implementation class ExhibitDisaplayServlet
  */
 @WebServlet("/ExhibitDisaplayServlet")
-public class ExhibitDisaplayServlet extends HttpServlet {
+public class AdminExhibitDisplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -35,23 +35,17 @@ public class ExhibitDisaplayServlet extends HttpServlet {
 			ExhibitDao dao = new ExhibitDao();
 
 			//セッション管理でログインの有無確認
-			if (session != null) {
+			if (session != null && session.getAttribute("admin_id") != null) {
 
-				//セッションから出品者IDの呼び出し
-				int sellerid = (Integer) session.getAttribute("id");
+				List<ExhibitBeans> list = dao.searchAll();
+				request.setAttribute("exhibits", list);
 
-				//自分が出品した本の設定
-				List<ExhibitBeans> mylist = dao.searchBySellerId(sellerid);
-				request.setAttribute("myexhibit", mylist);
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDisplayExhibition.jsp");
+				rd.forward(request, response);
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
+				rd.forward(request, response);
 			}
-
-			//すべての出品された本の設定
-			List<ExhibitBeans> list_all = dao.searchAll();
-			request.setAttribute("allexhibit", list_all);
-
-			//出品表示
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminDisplayMember.jsp");
-			rd.forward(request, response);
 
 		} catch (Exception e) {
 			e.printStackTrace();
