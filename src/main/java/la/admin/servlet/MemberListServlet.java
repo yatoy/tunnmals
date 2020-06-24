@@ -48,5 +48,6 @@ public class MemberListServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
 			rd.forward(request, response);
 
-		}	}
+		}
+	}
 }

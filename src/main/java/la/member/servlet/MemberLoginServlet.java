@@ -34,7 +34,7 @@ public class MemberLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		//		PrintWriter out = response.getWriter();
+		request.setCharacterEncoding("UTF-8");
 
 		try {
 			RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");

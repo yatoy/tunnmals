@@ -17,6 +17,7 @@ import la.dao.MemberDao;
 public class MemberRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -34,10 +35,13 @@ public class MemberRegisterServlet extends HttpServlet {
 
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
+
 		String type = request.getParameter("action");
 
 		if ("check".contentEquals(type)) {
