@@ -20,7 +20,7 @@
 	</div>
 	</div>
 	<a href="/tunnmals/AdminLoginServlet">管理者用ページに戻る</a>
-	<br>
+
 	<c:forEach items="${members}" var="member">
 		<div>
 			<img height="100" width="100" src="/tunnmals/noimage.png">
@@ -41,6 +41,7 @@
 			</form>
 		</div>
 	</c:forEach>
+
 </div>
 
 
