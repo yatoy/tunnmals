@@ -55,9 +55,11 @@ public class MemberUpdateServlet extends HttpServlet {
 
 		if ("check".contentEquals(type)) {
 			doCheck(request, response);
+			return;
 		}
 		if ("complete".contentEquals(type)) {
 			doComplete(request, response);
+			return;
 		}
 
 		doGet(request, response);

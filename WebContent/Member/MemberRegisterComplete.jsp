@@ -19,7 +19,7 @@
 
 <h3>下のボタンを押すと<br>マイページに進みます</h3>
 
-<form action="/tonnmals/MemberLoginServlet" method="get">
+<form action="/tunnmals/MemberLoginServlet" method="get">
 <input type="submit" value="ログインページ">
 </form>
 
