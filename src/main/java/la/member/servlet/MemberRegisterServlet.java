@@ -62,15 +62,12 @@ public class MemberRegisterServlet extends HttpServlet {
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
 
-		if (email == null || "".equals(email)) {
-			email = "未登録";
-		}
-
 		if (family_name == null || "".equals(family_name)
 				|| first_name == null || "".equals(first_name)
 				|| postal == null || "".equals(postal)
 				|| address == null || "".equals(address)
 				|| tel == null || "".equals(tel)
+				|| email == null || "".equals(email)
 				|| birthday == null || "".equals(birthday)
 				|| password1 == null || "".equals(password1)
 				|| password2 == null || "".equals(password2)) {
@@ -104,7 +101,7 @@ public class MemberRegisterServlet extends HttpServlet {
 		MemberDao dao = new MemberDao();
 		MemberBeans bean = new MemberBeans(family_name, first_name, postal, address, tel, email,
 				birthday, password, register_date);
-		dao.add(bean);
+		bean = dao.add(bean);
 		int id = bean.getId();
 		request.setAttribute("id", id);
 		gotoPage(request, response, "/Member/MemberRegisterComplete.jsp");
