@@ -32,14 +32,15 @@ public class MemberListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 
 			MemberDao dao = new MemberDao();
 
 			List<MemberBeans> list = dao.searchAll();
 			request.setAttribute("members", list);
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminDisplayMember.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDisplayMember.jsp");
 			rd.forward(request, response);
 
 		} catch (Exception e) {
@@ -48,5 +49,6 @@ public class MemberListServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
 			rd.forward(request, response);
 
-		}	}
+		}
+	}
 }

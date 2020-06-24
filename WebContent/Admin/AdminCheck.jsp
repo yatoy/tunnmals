@@ -9,13 +9,13 @@
 <body>
 
 <h1>Study Market</h1>
-<form action="/tunnmals/AdminLoginServlet" method="post">
+<form action="/tunnmals/AdminResignServlet" method="post">
 	ユーザーID :
 	<input type="text" name="id">
 	<br>
 	パスワード :
 	<input type="text" name="password">
-	<input type="hidden" name="action" value="login">
+	<input type="hidden" name="action" value="check">
 	<br>
 	<input type="submit" value="ログイン">
 

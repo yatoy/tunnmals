@@ -14,10 +14,15 @@
 	<div>
 		<img height="100" width="100" src="/tunnmals/noimage.png">
 		<p>名前</p>
+		${member.family_name} ${member.first_name}]
 		<p>住所</p>
+		${member.address}
 		<p>電話番号</p>
+		${member.tel}
 		<p>メールアドレス</p>
+		${member.email}
 		<p>生年月日</p>
+		${member.birthday}
 	</div>
 	<form action="/tunnmals/AdminResignServlet" method="post">
 		<input type="hidden" name="action" value="complete">

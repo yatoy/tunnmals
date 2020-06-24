@@ -23,32 +23,47 @@ public class AdminResignServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public AdminResignServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		//		PrintWriter out = response.getWriter();
+		request.setCharacterEncoding("UTF-8");
 
+		// actionリクエストパラメータの読込
+		String action = request.getParameter("action");
+
+		if ("Admincheck".equals(action)) {
+			doAdminCheck(request, response);
+			return;
+		}
+
+		if ("check".equals(action)) {
+			doCheck(request, response);
+			return;
+
+		}
+
+		if ("complete".equals(action)) {
+			doComplete(request, response);
+			return;
+
+		}
+	}
+
+	protected void doAdminCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
-			MemberBeans bean = (MemberBeans) request.getAttribute("bean");
-			int memberid = bean.getId();
-			String memberpassword = bean.getPassword();
+			int id = Integer.parseInt(request.getParameter("id"));
 
 			HttpSession session = request.getSession(false);
+			MemberDao dao = new MemberDao();
+			MemberBeans bean = dao.searchById(id);
 
-			session.setAttribute("member_id", memberid);
-			session.setAttribute("member_password", memberpassword);
+			session.setAttribute("member", bean);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminLogin.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminCheck.jsp");
 			rd.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,27 +74,10 @@ public class AdminResignServlet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html; charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
-
-		// actionリクエストパラメータの読込
-		String action = request.getParameter("action");
-
-		if("check".equals(action)) {
-			doCheck(request, response);
-		}if("complete".equals(action)) {
-			doComplete(request, response);
-		}
-	}
-
-	/**
 	 * @see HttpServlet#doCheck(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String password = request.getParameter("password");
 
@@ -88,8 +86,8 @@ public class AdminResignServlet extends HttpServlet {
 		AdminBeans bean = new AdminBeans();
 		bean = admindao.searchByIdPassword(id, password);
 
-		if(bean!=null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/AdminDeleteMember.jsp");
+		if (bean != null) {
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDeleteMember.jsp");
 			rd.forward(request, response);
 		}
 	}
@@ -97,20 +95,27 @@ public class AdminResignServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doComplete(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doComplete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doComplete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		int id = (int) session.getAttribute("member_id");
-		String password = (String) session.getAttribute("member_password");
 
-		// MemberDAOから呼び出し
-		MemberDao dao = new MemberDao();
-		dao.delete(id, password);
+		if (session != null) {
 
-		session.removeAttribute("member_id");
-		session.removeAttribute("member_password");
+			MemberBeans bean = (MemberBeans) session.getAttribute("member");
 
-		RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminDeleteMemberComplete.jsp");
-		rd.forward(request, response);
+			// MemberDAOから呼び出し
+			MemberDao dao = new MemberDao();
+			dao.delete(bean.getId(), bean.getPassword());
+
+			session.removeAttribute("member");
+
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDeleteMemberComplete.jsp");
+			rd.forward(request, response);
+		} else {
+
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }
