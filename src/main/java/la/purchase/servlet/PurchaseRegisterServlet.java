@@ -51,12 +51,6 @@ public class PurchaseRegisterServlet extends HttpServlet {
 			ExhibitDao exhibitdao = new ExhibitDao();
 			ExhibitBeans exhibitbean = exhibitdao.searchByBookId(book_id);
 
-			//			request.setAttribute("family_name", memberbean.getFamily_name());
-			//			request.setAttribute("first_name", memberbean.getFirst_name());
-			//			request.setAttribute("postal", memberbean.getPostal());
-			//			request.setAttribute("address", memberbean.getAddress());
-			//			request.setAttribute("email", memberbean.getEmail());
-
 			request.setAttribute("purchase_buyer", memberbean);
 			request.setAttribute("purchase_book", exhibitbean);
 
@@ -98,10 +92,7 @@ public class PurchaseRegisterServlet extends HttpServlet {
 		String payment_method = request.getParameter("payment_method");
 		HttpSession session = request.getSession(false);
 
-		MemberDao memberdao = new MemberDao();
 		MemberBeans memberbean = (MemberBeans)request.getAttribute("purchase_buyer");
-
-		ExhibitDao exhibitdao = new ExhibitDao();
 		ExhibitBeans exhibitbean = (ExhibitBeans)request.getAttribute("purchase_book");
 
 		int book_id = exhibitbean.getBook_id();
@@ -124,10 +115,11 @@ public class PurchaseRegisterServlet extends HttpServlet {
 				seller_id, sell_date, buyer_id, buy_date, payment_method);
 
 
-
-		request.setAttribute("exhibition", buybean);
-		session.setAttribute("exhibition", buybean);
-		gotoPage(request, response, "/Purchase/PurchaseRegisterCheck.jsp");
+		request.setAttribute("purchase_buyer", memberbean);
+		request.setAttribute("purchase_book", exhibitbean);
+		request.setAttribute("purchase", buybean);
+		session.setAttribute("purchase", buybean);
+		gotoPage(request, response, "/Purchase/PurchaseCheck.jsp");
 
 	}
 
@@ -135,7 +127,7 @@ public class PurchaseRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
-		ExhibitBeans bean = (ExhibitBeans) session.getAttribute("exhibition");
+		ExhibitBeans bean = (ExhibitBeans) session.getAttribute("purchase");
 
 		ExhibitDao dao = new ExhibitDao();
 		int id = bean.getBook_id();
@@ -143,7 +135,7 @@ public class PurchaseRegisterServlet extends HttpServlet {
 
 		session.removeAttribute("book_id");
 		request.setAttribute("book_id", id);
-		gotoPage(request, response, "/Exhibit/UpdateExhibitionComplete.jsp");
+		gotoPage(request, response, "/purchase/PurchaseComplete.jsp");
 	}
 
 	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page)
