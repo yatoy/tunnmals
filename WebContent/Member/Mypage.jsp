@@ -2,12 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-String id = request.getParameter("id");
-String family_name = request.getParameter("family_name");
-String first_name = request.getParameter("first_name");
 
-%>
 
 <!DOCTYPE html>
 <html>
@@ -31,24 +26,23 @@ String first_name = request.getParameter("first_name");
 
 	<div class="container">
 		<div class="alert alert-dark">
-		<h3><%= family_name%>さん、こんにちは！</h3>
+		<h3>${name}さん、こんにちは！</h3>
 	</div>
-<form action="/tunnmals/Servlet" method="get">
-<input type="submit" value="出品の表示">
-</form><br>
 
-<form action="/tunnmals/Servlet" method="get">
-<input type="submit" value="教科書の出品">
-</form><br>
+<a href="/tunnmals/Servlet">出品の表示</a>
 
-<form action="/tunnmals/Servlet" method="get">
-<input type="submit" value="会員情報">
-</form>
-
-<form action="/tunnmals/Servlet" method="get">
-<input type="submit" value="購入履歴">
-</form>
 <br>
+<a href="/tunnmals/Servlet">教科書の出品</a>
+
+<br>
+<a href="/tunnmals/Servlet">会員情報</a>
+
+<br>
+<a href="/tunnmals/Servlet">購入履歴</a>
+
+<br>
+
+
 </div>
 </body>
 </html>
