@@ -19,15 +19,18 @@
 	</div>
 
 <form action="/tunnmals/MemberResignServlet" method="post">
-	ユーザーID :
-	<input type="text" name="id">
-	<br>
-	パスワード :
-	<input type="text" name="password">
+	<div class="text-center">
+	<div class="container">
+		<div class="alert alert-dark">
+		ご自身の情報を入力してください
+		</div>
+	</div>
+	<input type="text" name="id" placeholder="会員ID"><br>
+	<input type="password" name="password" placeholder="パスワード"><br>
 	<br>
 	<input type="hidden" name="action" value="check">
 	<input type="submit" value="退会確認画面へ">
-
+	</div>
 </form>
 <br>
 </div>
