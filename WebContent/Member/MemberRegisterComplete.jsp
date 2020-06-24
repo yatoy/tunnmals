@@ -15,12 +15,12 @@
 <h1>会員登録完了</h1>
 
 <h2>会員登録が完了しました</h2>
-あなたの会員番号は${id}です
+<h2>あなたの会員番号は${id}です</h2>
 
 <h3>下のボタンを押すと<br>マイページに進みます</h3>
 
-<form action="/tonnmals/MemberRegisterServlet" method="get">
-<input type="submit" value="マイページ">
+<form action="/tunnmals/MemberLoginServlet" method="get">
+<input type="submit" value="ログインページ">
 </form>
 
 </body>

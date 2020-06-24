@@ -42,9 +42,11 @@ public class MemberRegisterServlet extends HttpServlet {
 
 		if ("check".contentEquals(type)) {
 			doCheck(request, response);
+			return;
 		}
 		if ("complete".contentEquals(type)) {
 			doComplete(request, response);
+			return;
 		}
 
 		doGet(request, response);
@@ -96,7 +98,8 @@ public class MemberRegisterServlet extends HttpServlet {
 		//memberテーブルに追加
 
 		Calendar cal = Calendar.getInstance(); //[1]
-		String register_date = cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DATE);
+		String register_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-"
+				+ cal.get(Calendar.DATE);
 
 		MemberDao dao = new MemberDao();
 		MemberBeans bean = new MemberBeans(family_name, first_name, postal, address, tel, email,
