@@ -20,19 +20,9 @@ import la.dao.MemberDao;
 public class MemberLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public MemberLoginServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
@@ -48,12 +38,12 @@ public class MemberLoginServlet extends HttpServlet {
 		}
 	}
 
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
@@ -62,7 +52,7 @@ public class MemberLoginServlet extends HttpServlet {
 
 		try {
 			// ログイン時
-			if("login".equals(action)) {
+			if ("login".equals(action)) {
 				int id = Integer.parseInt(request.getParameter("id"));
 				String password = request.getParameter("password");
 
@@ -72,13 +62,13 @@ public class MemberLoginServlet extends HttpServlet {
 				bean = dao.searchByIdPassword(id, password);
 
 				// ユーザとパスワード一致でログイン処理
-				if(bean != null) {
+				if (bean != null) {
 
 					// セッション管理
 					HttpSession loginsession = request.getSession();
 
 					// セッション管理用の名前設定
-					String name = bean.getFamily_name()+" "+bean.getFirst_name();
+					String name = bean.getFamily_name() + " " + bean.getFirst_name();
 
 					// ログイン済みの属性設定
 					loginsession.setAttribute("isLogin", "true");
@@ -88,19 +78,18 @@ public class MemberLoginServlet extends HttpServlet {
 					// マイページへ戻る
 					RequestDispatcher rd = request.getRequestDispatcher("/Member/Mypage.jsp");
 					rd.forward(request, response);
-				}else {
+				} else {
 					doGet(request, response);
 				}
 			}
 			// ログアウト確認
-			else if("logout_check".equals(action)){
+			else if ("logout_check".equals(action)) {
 				//ログアウト確認画面へ
 				RequestDispatcher rd = request.getRequestDispatcher("/Member/LogoutCheck.html");
 				rd.forward(request, response);
-			}
-			else if("logout".equals(action)) {
+			} else if ("logout".equals(action)) {
 				HttpSession session = request.getSession(false);
-				if(session!=null) {
+				if (session != null) {
 					//セッションの削除
 					session.invalidate();
 
@@ -109,7 +98,7 @@ public class MemberLoginServlet extends HttpServlet {
 					rd.forward(request, response);
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");
 			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");

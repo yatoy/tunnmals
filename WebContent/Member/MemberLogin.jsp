@@ -28,6 +28,7 @@
 	<form action="/tunnmals/MemberLoginServlet" method="post">
 	<input type="text" name="id" placeholder="会員ID"><br>
 	<input type="password" name="password" placeholder="パスワード"><br>
+	<input type="hidden" name="action" value="login">
 	<input type="submit" value="ログイン">
 	</form>
 
