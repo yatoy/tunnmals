@@ -32,7 +32,7 @@ public class AdminLoginServlet extends HttpServlet {
 			HttpSession session = request.getSession(false);
 			if (session != null) {
 
-				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminMenu.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
 				rd.forward(request, response);
 			} else {
 				RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
