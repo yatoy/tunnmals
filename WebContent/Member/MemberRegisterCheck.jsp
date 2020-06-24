@@ -19,28 +19,38 @@ String password = request.getParameter("password1");
 <head>
 <meta charset="UTF-8">
 <title>新規会員登録</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
 </head>
 <body>
+<div class="card text-center">
+	<div class="card text-white bg-info mb-3">
+<img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
+	  <div class="card-header">
+		<h1 class="font-italic">Study Market</h1>
+	  </div>
+	</div>
 
-<h1>新規会員登録</h1>
+	<h1>新規会員登録</h1>
 
-<h2></h2>
+	<h2></h2>
 
-<form action="/tunnmals/MemberRegisterServlet" method="post">
-氏名
-<input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
-<input type="text" name="first_name" readonly="readonly" value="<%=first_name%>"><br>
-郵便番号<input type="text" name="postal" readonly="readonly" value="<%=postal%>"><br>
-住所<input type="text" name="address" readonly="readonly" value="<%=address%>"><br>
-電話番号<input type="tel" name="tel" readonly="readonly" value="<%=tel%>"><br>
-Eメールアドレス<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
-生年月日<input type="date" name="birthday" readonly="readonly" value="<%=birthday%>"><br>
-設定パスワード<input type="password" name="password" readonly="readonly" value="<%=password%>"><br>
+	<form action="/tunnmals/MemberRegisterServlet" method="post">
+	氏名
+	<input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
+	<input type="text" name="first_name" readonly="readonly" value="<%=first_name%>"><br>
+	郵便番号<input type="text" name="postal" readonly="readonly" value="<%=postal%>"><br>
+	住所<input type="text" name="address" readonly="readonly" value="<%=address%>"><br>
+	電話番号<input type="tel" name="tel" readonly="readonly" value="<%=tel%>"><br>
+	Eメールアドレス<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
+	生年月日<input type="date" name="birthday" readonly="readonly" value="<%=birthday%>"><br>
+	設定パスワード<input type="password" name="password" readonly="readonly" value="<%=password%>"><br>
 
-<input type="hidden" name="action" value="complete">
-<input type="submit" value="前ページに戻る">
-<input type="submit" value="会員登録">
-</form>
-
+	<input type="hidden" name="action" value="complete">
+	<input type="submit" value="前ページに戻る">
+	<input type="submit" value="会員登録">
+	</form>
+</div>
 </body>
 </html>

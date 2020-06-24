@@ -7,35 +7,52 @@
 <head>
 <meta charset="UTF-8">
 <title>新規会員登録</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
+
 <body>
 
-<h1>新規会員登録</h1>
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1><p class="font-italic">Study Market</p></h1>
+	  </div>
+	</div>
 
-<%
-String type = request.getParameter("action");
-String message="";
-if ("check".equals(type)) {
-	message="必須項目を入力してください";
-}
-%>
+	<h2>新規会員登録</h2>
 
-<%= message%>
+	</div>
 
-<h2>登録する情報を入力してください</h2>
+	<%
+	String type = request.getParameter("action");
+	String message="登録する情報を入力してください";
+	if ("check".equals(type)) {
+		message="必須項目を入力してください";
+	}
+	%>
 
-<form action="/tunnmals/MemberRegisterServlet" method="post">
-氏名<input type="text" name="family_name"><input type="text" name="first_name"><br>
-郵便番号<input type="text" name="postal"><br>
-住所<input type="text" name="address"><br>
-電話番号<input type="tel" name="tel"><br>
-Eメールアドレス<input type="email" name="email"><br>
-生年月日<input type="date" name="birthday" max="9999-12-31"><br>
-設定パスワード<input type="password" name="password1"><br>
-設定パスワード（再確認）<input type="password" name="password2"><br>
-<input type="hidden" name="action" value="check">
-<input type="submit" value="登録情報の確認">
-</form>
+	<div class="container">
+		<div class="alert alert-dark">
+	<%= message%>
+	</div>
+	<form action="/tunnmals/MemberRegisterServlet" method="post">
+	氏名：<input type="text" name="family_name" placeholder="氏"><input type="text" name="first_name" placeholder="名"><br>
+	郵便番号：<input type="text" name="postal" placeholder="ハイフンなし、7桁"><br>
+	住所：<input type="text" name="address" placeholder="都道府県市区町村マンション名号室"><br>
+	電話番号：<input type="tel" name="tel" placeholder="***-****-****"><br>
+	Eメールアドレス：<input type="email" name="email" placeholder="sample@sample.com"><br>
+	生年月日：<input type="date" name="birthday" max="9999-12-31"><br>
+	設定パスワード：<input type="password" name="password1"><br>
+	設定パスワード（再確認）：<input type="password" name="password2" placeholder=""><br>
+	<br>
+	<input type="hidden" name="action" value="check">
+	<input type="submit" value="登録情報の確認">
+	</form>
 
+	</div>
+
+</div>
 </body>
 </html>
