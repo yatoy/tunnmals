@@ -20,12 +20,12 @@
 		<p>状態</p>
 		<p>分類</p>
 	</div>
-	<form action="/tunnmals/ExhibitDeleteServlet" method="post">
+	<form action="/tunnmals/AdminDeleteExhibitServlet" method="post">
 		<input type="hidden" name="action" value="complete">
 		<input type="submit" value="削除">
 	</form>
 
-	<a href="/tunnmals/ExhibitDisplayServlet">キャンセル</a>
+	<a href="/tunnmals/AdminExhibitDisplayServlet">キャンセル</a>
 
 
 

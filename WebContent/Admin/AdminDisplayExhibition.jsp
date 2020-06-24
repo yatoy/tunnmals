@@ -16,13 +16,20 @@
 	<div>
 		<img height="100" width="100" src="/tunnmals/noimage.png">
 		<p>タイトル</p>
+		<p>${exhibit.book_name}</p>
 		<p>ISBN番号</p>
+		<p>${exhibit.isbn}</p>
 		<p>販売価格</p>
+		<p>${exhibit.price}</p>
 		<p>著者</p>
+		<p>${exhibit.author}</p>
 		<p>状態</p>
+		<p>${exhibit.quality}</p>
 		<p>分類</p>
-		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
+		<p>${exhibit.category}</p>
+		<form action="/tunnmals/AdminDeleteExhibitServlet" method="post">
 			<input type="hidden" name="action" value="check">
+			<input type="hidden" name="id" value="${exhibit.book_id}">
 			<input type="submit" value="削除">
 		</form>
 	</div>
