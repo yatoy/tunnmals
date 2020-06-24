@@ -38,6 +38,8 @@ public class AdminDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return bean;

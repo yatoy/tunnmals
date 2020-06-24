@@ -53,6 +53,8 @@ public class MemberDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return bean;
@@ -88,6 +90,8 @@ public class MemberDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return bean;
@@ -124,6 +128,7 @@ public class MemberDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 
 		return searchById(max());
@@ -179,6 +184,7 @@ public class MemberDao {
 			st.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 
 		return searchById(bean.getId());
@@ -213,6 +219,7 @@ public class MemberDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 
 		return list;
@@ -232,6 +239,8 @@ public class MemberDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
+
 		}
 
 		return max;

@@ -54,6 +54,8 @@ public class ExhibitDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return bean;
@@ -88,6 +90,8 @@ public class ExhibitDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return searchByBookId(max());
@@ -144,6 +148,8 @@ public class ExhibitDao {
 			st.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return searchByBookId(bean.getBook_id());
@@ -161,6 +167,8 @@ public class ExhibitDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
+
 		}
 
 		return max;
@@ -195,6 +203,8 @@ public class ExhibitDao {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return list;
@@ -233,6 +243,8 @@ public class ExhibitDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return list;
@@ -267,6 +279,8 @@ public class ExhibitDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
+
 		}
 
 		return list;
