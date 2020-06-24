@@ -181,7 +181,7 @@ public class MemberDao {
 			st.setDate(10, Date.valueOf(bean.getChange_date()));
 			st.setInt(11, bean.getId());
 
-			st.executeQuery();
+			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

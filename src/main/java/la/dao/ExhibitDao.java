@@ -145,7 +145,7 @@ public class ExhibitDao {
 			st.setString(11, bean.getPayment_method());
 			st.setInt(12, bean.getBook_id());
 
-			st.executeQuery();
+			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
