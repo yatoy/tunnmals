@@ -39,7 +39,6 @@ public class MemberListServlet extends HttpServlet {
 
 			List<MemberBeans> list = dao.searchAll();
 			request.setAttribute("members", list);
-
 			RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminDisplayMember.jsp");
 			rd.forward(request, response);
 
