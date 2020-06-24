@@ -18,7 +18,7 @@
 	<div class="card text-white bg-info mb-3">
 <img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
 	  <div class="card-header">
-		<h1 class="font-italic">Study Market</h1>
+		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	  <div class="card-body">
 	    <h5 class="card-title">みんなの教科書売買システム（仮）</h5>

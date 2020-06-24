@@ -17,7 +17,16 @@
 <title>出品完了画面</title>
 </head>
 <body>
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
+	</div>
 出品しました。<br>
 <a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
+</div>
 </body>
 </html>

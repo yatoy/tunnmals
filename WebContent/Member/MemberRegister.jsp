@@ -17,7 +17,7 @@
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
 	  <div class="card-header">
-		<h1><p class="font-italic">Study Market</p></h1>
+		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
 

@@ -19,11 +19,19 @@ String password = request.getParameter("password");
 <head>
 <meta charset="UTF-8">
 <title>会員情報表示</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-
-<h1>会員情報の変更</h1>
-
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
+	<h1>会員情報の変更</h1>
+	</div>
 <h2>変更する情報を入力してください</h2>
 
 <form action="/tunnmals/MemberRegisterServlet" method="post">
@@ -44,6 +52,7 @@ Eメールアドレス<input type="email" name="<%= email%>"><br>
 <input type="submit" value="戻る">
 <input type="submit" value="登録情報の変更">
 </form>
-
+<br>
+</div>
 </body>
 </html>

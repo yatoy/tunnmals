@@ -5,10 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Login</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
 </head>
 <body>
-
-	<h1>Study Market</h1>
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-danger mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
+	</div>
 	<h2>本当に削除しますか？</h2>
 	<br>
 	<div>
@@ -20,13 +29,12 @@
 		<p>生年月日</p>
 	</div>
 	<form action="/tunnmals/AdminResignServlet" method="post">
-		<input type="hidden" name="action" value="complete">
+		<input type="hidden" name="action" value="completze">
 		<input type="submit" value="削除">
 	</form>
 
 	<a href="/tunnmals/MemberListServlet">キャンセル</a>
 
-
-
+</div>
 </body>
 </html>

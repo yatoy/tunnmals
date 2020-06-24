@@ -7,6 +7,14 @@
 <title>購入履歴</title>
 </head>
 <body>
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
+	</div>
 	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
 	あなたの購入履歴<br>
@@ -28,6 +36,6 @@
 	</div>
 
 
-
+</div>
 </body>
 </html>

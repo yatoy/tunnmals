@@ -24,23 +24,37 @@ String email = request.getParameter("email");
 <title>購入情報入力画面</title>
 </head>
 <body>
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">📚 Study Market</h1>
+	  </div>
+	</div>
+	お客様情報入力画面
+	</div>
+
 	<div class="container">
+	<div class="text-center">
 		<div class="alert alert-dark">
-			<h1>お客様情報入力画面</h1>
+			お支払方法を選択してください
 		</div>
+	</div>
+
 		<form action="/tunnmals/PurchaseRegisterServlet" method="post">
 
-			お届け先氏名（必須）：<br>
+			お届け先情報
+			ご氏名：
 <input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
 <input type="text" name="first_name" readonly="readonly" value="<%=first_name%>"><br>
-			お届け先ご住所（必須）：
-			〒<input type="text" name="postal" readonly="readonly" value="<%=postal%>"><br>
+			ご住所：〒<input type="text" name="postal" readonly="readonly" value="<%=postal%>"><br>
 			<input type="text" name="address" readonly="readonly" value="<%=address%>"><br>
-			ご連絡先（必須）：
+			ご連絡先：
 			<input type="tel" name="tel" readonly="readonly" value="<%=tel%>"><br>
 			メールアドレス：
 			<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
-			支払方法（必須）：
+			<br>
+			お支払方法：
 			<input type="radio" name="size" value="bank">銀行振込<br>
 			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
@@ -49,5 +63,7 @@ String email = request.getParameter("email");
 
 	</div>
 
+<br>
+</div>
 </body>
 </html>

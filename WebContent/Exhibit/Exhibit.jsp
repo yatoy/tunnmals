@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-
+//27行目
 %>
 
 <!DOCTYPE html>
@@ -17,13 +17,29 @@
 <title>出品情報入力画面</title>
 </head>
 <body>
+
+<div class="card">
+	<div class="text-center">
+	<div class="card text-white bg-info mb-3">
+	  <div class="card-header">
+		<h1 class="font-italic">Study Market</h1>
+	  </div>
+	</div>
+	</div>
+
+
 	<div class="container">
 		<div class="alert alert-dark">
 		以下の情報を入力してください。<br>
 		</div>
+		<form>
+		  <div class="form-group">
+		    <label for="exampleFormControlFile1">画像：</label>
+		    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+		  </div>
+		</form>
 		<form action="/tunnmals/ExhibitRegisterServlet" method="post">
-			画像：<img height="100" width="100" src="/tunnmals/noimage.png"><br>
-			タイトル（必須）：<br><input type="text" name="book_name"><br>
+			タイトル（必須）：<input type="text" name="book_name"><br>
 			ISBN番号（必須）：<input type="text" name="isbn"><br>
 			販売価格（必須）：
 			<input type="text" name="price"><br>
@@ -51,10 +67,15 @@
 			<option value="10">農学部系</option>
 			</select>
 			<br>
+
+			<br>
+			<div class="text-center">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
+			</div>
+			<br>
 		</form>
 
 	</div>
-
+</div>
 </body>
 </html>
