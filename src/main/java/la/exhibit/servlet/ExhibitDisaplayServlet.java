@@ -22,20 +22,13 @@ public class ExhibitDisaplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExhibitDisaplayServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		try {
 			//セッションの確認
 			HttpSession session = request.getSession(false);
@@ -44,10 +37,10 @@ public class ExhibitDisaplayServlet extends HttpServlet {
 			ExhibitDao dao = new ExhibitDao();
 
 			//セッション管理でログインの有無確認
-			if(session != null) {
+			if (session != null) {
 
 				//セッションから出品者IDの呼び出し
-				int sellerid = (Integer)session.getAttribute("id");
+				int sellerid = (Integer) session.getAttribute("id");
 
 				//自分が出品した本の設定
 				List<ExhibitBeans> mylist = dao.searchBySellerId(sellerid);
@@ -70,4 +63,5 @@ public class ExhibitDisaplayServlet extends HttpServlet {
 
 		}
 	}
+
 }
