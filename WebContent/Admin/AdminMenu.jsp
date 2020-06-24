@@ -23,7 +23,7 @@
 <br>
 <a href="/tunnmals/ExhibitDisplayServlet">出品の表示</a>
 <br>
-<a href="/tunnmals/PurchaseDisplayServlet">購入履歴の表示</a>
+<a href="/tunnmals/AdminPurchaseDisplayServlet">購入履歴の表示</a>
 <br>
 </div>
 </body>
