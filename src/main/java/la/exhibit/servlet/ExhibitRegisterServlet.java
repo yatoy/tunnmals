@@ -101,7 +101,7 @@ public class ExhibitRegisterServlet extends HttpServlet {
 
 		//exhibitテーブルに追加
 		HttpSession session = request.getSession(false);
-		int sell_id = (int)session.getAttribute("id");
+		int seller_id = (int)session.getAttribute("id");
 
 		Calendar cal = Calendar.getInstance(); //[1]
 		String sell_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-"
@@ -109,7 +109,7 @@ public class ExhibitRegisterServlet extends HttpServlet {
 
 		ExhibitDao dao = new ExhibitDao();
 		ExhibitBeans bean = new ExhibitBeans(book_name, isbn, price, author, quality, book_class,
-				sell_id, sell_date);
+				seller_id, sell_date);
 		bean = dao.add(bean);
 		int id = bean.getBook_id();
 		request.setAttribute("book_id", id);
