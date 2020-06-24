@@ -20,7 +20,7 @@
 	</div>
 	<h2>削除しました</h2>
 
-	<a href="/tunnmals/ExhibitDisplayServlet">全会員の表示へ戻る</a>
+	<a href="/tunnmals/AdminExhibitDisplayServlet">全出品の表示へ戻る</a>
 
 </div>
 

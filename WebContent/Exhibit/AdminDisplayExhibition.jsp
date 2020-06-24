@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin Login</title>
-
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
 </head>
 <body>
 <div class="card">
@@ -18,7 +18,7 @@
 	  </div>
 	</div>
 	</div>
-	<h2>本当に削除しますか？</h2>
+	<a href="/tunnmals/AdminLoginServlet">管理者用ページに戻る</a>
 	<br>
 	<div>
 		<img height="100" width="100" src="/tunnmals/noimage.png">
@@ -28,15 +28,13 @@
 		<p>著者</p>
 		<p>状態</p>
 		<p>分類</p>
+		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
+			<input type="hidden" name="action" value="check">
+			<input type="submit" value="削除">
+		</form>
 	</div>
-	<form action="/tunnmals/ExhibitDeleteServlet" method="post">
-		<input type="hidden" name="action" value="complete">
-		<input type="submit" value="削除">
-	</form>
-
-	<a href="/tunnmals/ExhibitDisplayServlet">キャンセル</a>
-
 
 </div>
+
 </body>
 </html>

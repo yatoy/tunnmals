@@ -29,7 +29,7 @@
 		<h3>${name}さん、こんにちは！</h3>
 	</div>
 
-<a href="/tunnmals/Servlet">出品の表示</a>
+<a href="/tunnmals/ExhibitDisplayServlet">出品の表示</a>
 
 <br>
 <a href="/tunnmals/Servlet">教科書の出品</a>

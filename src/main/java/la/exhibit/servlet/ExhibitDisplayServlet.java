@@ -17,8 +17,8 @@ import la.dao.ExhibitDao;
 /**
  * Servlet implementation class ExhibitDisaplayServlet
  */
-@WebServlet("/ExhibitDisaplayServlet")
-public class ExhibitDisaplayServlet extends HttpServlet {
+@WebServlet("/ExhibitDisplayServlet")
+public class ExhibitDisplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
