@@ -100,7 +100,7 @@ public class MemberUpdateServlet extends HttpServlet {
 
 		if (password1.equals(password2) && password.equals(bean.getPassword())) {
 			request.setAttribute("member", bean);
-			gotoPage(request, response, "/Member/MemberRegisterCheck.jsp");
+			gotoPage(request, response, "/Member/MemberUpdateCheck.jsp");
 		}
 
 	}
@@ -125,7 +125,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		String change_date = cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DATE);
 		MemberBeans bean = new MemberBeans(id, family_name, first_name, postal, address, tel, email,
 				birthday, password, register_date, change_date);
-		dao.update(bean);
+		bean = dao.update(bean);
 		gotoPage(request, response, "/Member/MemberRegisterComplete.jsp");
 	}
 
