@@ -24,6 +24,7 @@
 	<br>
 	パスワード :
 	<input type="text" name="password">
+	<input type="hidden" name="action" value="login">
 	<br>
 	<input type="submit" value="ログイン">
 

@@ -20,38 +20,34 @@ import la.dao.AdminDao;
 public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public AdminLoginServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-		//		PrintWriter out = response.getWriter();
 
 		try {
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminLogin.jsp");
-			rd.forward(request, response);
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminMenu.jsp");
+				rd.forward(request, response);
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
+				rd.forward(request, response);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");
 			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
 			rd.forward(request, response);
 
-		}	}
+		}
+	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
@@ -60,7 +56,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 		try {
 			// ログイン時
-			if("login".equals(action)) {
+			if ("login".equals(action)) {
 				int id = Integer.parseInt(request.getParameter("id"));
 				String password = request.getParameter("password");
 
@@ -70,40 +66,39 @@ public class AdminLoginServlet extends HttpServlet {
 				bean = dao.searchByIdPassword(id, password);
 
 				// ユーザとパスワード一致でログイン処理
-				if(bean != null) {
+				if (bean != null) {
 
 					// セッション管理
 					HttpSession session = request.getSession();
 
 					// ログイン済みの属性設定
 					session.setAttribute("isLogin", "true");
-					session.setAttribute("id", id);
+					session.setAttribute("admin_id", id);
 
 					// マイページへ戻る
-					RequestDispatcher rd = request.getRequestDispatcher("/AdminMenu.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminMenu.jsp");
 					rd.forward(request, response);
-				}else {
+				} else {
 					doGet(request, response);
 				}
 			}
 			// ログアウト確認(ページ未実装)
-			else if("logout_check".equals(action)){
+			else if ("logout_check".equals(action)) {
 				//ログアウト確認画面へ
 				RequestDispatcher rd = request.getRequestDispatcher("/LogoutCheck.html");
 				rd.forward(request, response);
-			}
-			else if("logout".equals(action)) {
+			} else if ("logout".equals(action)) {
 				HttpSession session = request.getSession(false);
-				if(session!=null) {
+				if (session != null) {
 					//セッションの削除
 					session.invalidate();
 
 					//トップページに遷移
-					RequestDispatcher rd = request.getRequestDispatcher("/AdminLogin.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
 					rd.forward(request, response);
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");
 			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");

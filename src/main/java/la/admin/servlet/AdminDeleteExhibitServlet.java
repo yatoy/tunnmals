@@ -10,16 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import la.bean.AdminBeans;
-import la.bean.MemberBeans;
-import la.dao.AdminDao;
-import la.dao.MemberDao;
+import la.bean.ExhibitBeans;
+import la.dao.ExhibitDao;
 
 /**
  * Servlet implementation class AdminResignServlet
  */
-@WebServlet("/AdminResignServlet")
-public class AdminResignServlet extends HttpServlet {
+@WebServlet("/AdminDeleteExhibitServlet")
+public class AdminDeleteExhibitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -30,11 +28,6 @@ public class AdminResignServlet extends HttpServlet {
 
 		// actionリクエストパラメータの読込
 		String action = request.getParameter("action");
-
-		if ("Admincheck".equals(action)) {
-			doAdminCheck(request, response);
-			return;
-		}
 
 		if ("check".equals(action)) {
 			doCheck(request, response);
@@ -49,57 +42,57 @@ public class AdminResignServlet extends HttpServlet {
 		}
 	}
 
-	protected void doAdminCheck(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
-			int id = Integer.parseInt(request.getParameter("id"));
-
-			HttpSession session = request.getSession(false);
-			MemberDao dao = new MemberDao();
-			MemberBeans bean = dao.searchById(id);
-			session.setAttribute("member", bean);
-			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminCheck.jsp");
-			rd.forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	protected void doCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		String password = request.getParameter("password");
 
-		// AdminDAOから呼び出し
-		AdminDao admindao = new AdminDao();
-		AdminBeans bean = new AdminBeans();
-		bean = admindao.searchByIdPassword(id, password);
+		HttpSession session = request.getSession(false);
 
-		if (bean != null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDeleteMember.jsp");
+		if (session != null && session.getAttribute("admin_id") != null) {
+
+			ExhibitDao dao = new ExhibitDao();
+			ExhibitBeans bean = dao.searchByBookId(id);
+
+			if (bean != null) {
+				session.setAttribute("exhibit", bean);
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDeleteExhibit.jsp");
+				rd.forward(request, response);
+			} else {
+				request.setAttribute("message", "その商品はありません");
+				RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
+				rd.forward(request, response);
+			}
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
 			rd.forward(request, response);
 		}
+
 	}
 
+	/**
+	 * @see HttpServlet#doComplete(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doComplete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
+
 		if (session != null && session.getAttribute("admin_id") != null) {
 
-			MemberBeans bean = (MemberBeans) session.getAttribute("member");
+			ExhibitBeans bean = (ExhibitBeans) session.getAttribute("exhibit");
 
-			MemberDao dao = new MemberDao();
-			dao.delete(bean.getId(), bean.getPassword());
-			session.removeAttribute("member");
+			// MemberDAOから呼び出し
+			ExhibitDao dao = new ExhibitDao();
+			dao.delete(bean.getBook_id());
 
-			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDeleteMemberComplete.jsp");
+			session.removeAttribute("exhibit");
+
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDeleteExhibitComplete.jsp");
 			rd.forward(request, response);
 		} else {
 
 			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
 			rd.forward(request, response);
 		}
-
 	}
 
 }
