@@ -250,6 +250,46 @@ public class ExhibitDao {
 		return list;
 	}
 
+	public List<ExhibitBeans> searchBySellerId(int seller_id) {
+
+		String sql = "SELECT * FROM exhibit WHERE seller_id=?";
+
+		List<ExhibitBeans> list = new ArrayList<ExhibitBeans>();
+
+		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
+				PreparedStatement st = con.prepareStatement(sql);) {
+
+			st.setInt(1, seller_id);
+
+			try (ResultSet rs = st.executeQuery();) {
+
+				while (rs.next()) {
+					ExhibitBeans bean = new ExhibitBeans(
+							rs.getInt("book_id"),
+							rs.getString("book_name"),
+							rs.getString("isbn"),
+							rs.getInt("price"),
+							rs.getString("author"),
+							rs.getString("quality"),
+							rs.getString("class"),
+							rs.getInt("seller_id"),
+							rs.getString("sell_date"),
+							rs.getInt("buyer_id"),
+							rs.getString("buy_date"),
+							rs.getString("payment_method"));
+
+					list.add(bean);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+
+		}
+
+		return list;
+	}
+
 	public List<ExhibitBeans> seachAllBuy() {
 
 		String sql = "SELECT * FROM exhibit WHERE buyer_id > 0";
