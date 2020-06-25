@@ -195,7 +195,7 @@ class ExhibitDaoTest extends ExhibitDao {
 		Assertions.assertEquals("不吉ねを狩る", list.get(2).getAuthor());
 		Assertions.assertEquals("未使用", list.get(2).getQuality());
 		Assertions.assertEquals("法学部系", list.get(2).getCategory());
-		Assertions.assertEquals(3, list.get(2).getSeller_id());
+		Assertions.assertEquals(2, list.get(2).getSeller_id());
 		Assertions.assertEquals("2020-07-12", list.get(2).getSell_date());
 		Assertions.assertEquals(2, list.get(2).getBuyer_id());
 		Assertions.assertEquals("2020-12-12", list.get(2).getBuy_date());
@@ -208,6 +208,26 @@ class ExhibitDaoTest extends ExhibitDao {
 		ExhibitDao dao = new ExhibitDao();
 
 		Assertions.assertEquals(6, dao.max());
+	}
+
+	@Test
+	void testSeachNotSellerId() {
+		ExhibitDao dao = new ExhibitDao();
+
+		List<ExhibitBeans> list = dao.searchByNotSellerId(3);
+
+		Assertions.assertEquals(1, list.get(0).getBook_id());
+		Assertions.assertEquals("猿も木から落ちる", list.get(0).getBook_name());
+		Assertions.assertEquals("1111111111111", list.get(0).getIsbn());
+
+		Assertions.assertEquals(2, list.get(1).getBook_id());
+		Assertions.assertEquals("豚に真珠", list.get(1).getBook_name());
+		Assertions.assertEquals("2222222222222", list.get(1).getIsbn());
+
+		Assertions.assertEquals(6, list.get(2).getBook_id());
+		Assertions.assertEquals("私がぴょん", list.get(2).getBook_name());
+		Assertions.assertEquals("6666666666666", list.get(2).getIsbn());
+
 	}
 
 	@BeforeEach
@@ -296,7 +316,7 @@ class ExhibitDaoTest extends ExhibitDao {
 			st7.setString(5, "不吉ねを狩る");
 			st7.setString(6, "未使用");
 			st7.setString(7, "法学部系");
-			st7.setInt(8, 3);
+			st7.setInt(8, 2);
 			st7.setDate(9, Date.valueOf("2020-07-12"));
 			st7.setInt(10, 2);
 			st7.setDate(11, Date.valueOf("2020-12-12"));
