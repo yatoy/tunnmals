@@ -69,8 +69,11 @@ public class MemberResignServlet extends HttpServlet {
 	 * @see HttpServlet#doCheck(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+
 		String password = request.getParameter("password");
+
+		HttpSession logoutsession = request.getSession(false);
+		int id = (int) logoutsession.getAttribute("id");
 
 		// MemberDAOから呼び出し
 		MemberDao dao = new MemberDao();
@@ -78,9 +81,7 @@ public class MemberResignServlet extends HttpServlet {
 		bean = dao.searchByIdPassword(id, password);
 
 		if(bean!=null) {
-			HttpSession session = request.getSession(false);
-			session.setAttribute("id", id);
-			session.setAttribute("password", password);
+			logoutsession.setAttribute("password", password);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/Member/DeleteMemberCheck.jsp");
 			rd.forward(request, response);
