@@ -21,32 +21,30 @@ public class MemberDisplayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public MemberDisplayServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		try {
 
 			HttpSession session = request.getSession(false);
-			int id = (int) session.getAttribute("id");
 
-			MemberDao dao = new MemberDao();
-			MemberBeans bean = new MemberBeans();
+			if (session != null && session.getAttribute("id") != null) {
 
-			bean = dao.searchById(id);
-			request.setAttribute("member", bean);
+				int id = (int) session.getAttribute("id");
+				MemberDao dao = new MemberDao();
+				MemberBeans bean = dao.searchById(id);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberDisplayInfo.jsp");
-			rd.forward(request, response);
+				request.setAttribute("member", bean);
+				RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberDisplayInfo.jsp");
+				rd.forward(request, response);
+			} else {
+				RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");
+				rd.forward(request, response);
+
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
