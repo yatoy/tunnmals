@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,23 +21,24 @@
 	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
 	あなたの購入履歴<br>
+	<c:forEach items="${purchase_history}" var="exhibit">
 	<div>
 		<img height="100" width="100" src="/tunnmals/noimage.png">
 		<p>購入日</p>
-		<p>2020/06/01</p>
+		<p>${exhibit.buy_date}</p>
 		<p>ISBN番号</p>
-		<p>5555555567</p>
+		<p>${exhibit.isbn}</p>
 		<p>タイトル</p>
-		<p>******</p>
+		<p>${exhibit.book_name}</p>
 		<p>分類</p>
-		<p>*****</p>
+		<p>${exhibit.category}</p>
 		<p>状態</p>
-		<p>*****</p>
+		<p>${exhibit.quality}</p>
 		<p>価格</p>
-		<p>*******</p>
+		<p>${exhibit.price}</p>
 
 	</div>
-
+	</c:forEach>
 
 </div>
 </body>

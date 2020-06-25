@@ -21,29 +21,18 @@ import la.dao.ExhibitDao;
 public class PurchaseHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public PurchaseHistoryServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		try {
 			//セッションの確認
 			HttpSession session = request.getSession(false);
 
-			//出品DAOの呼び出し
-			ExhibitDao dao = new ExhibitDao();
-
 			//セッション管理でログインの有無確認
 			if (session != null && session.getAttribute("id") != null) {
+				//出品DAOの呼び出し
+				ExhibitDao dao = new ExhibitDao();
 
 				//セッションから出品者IDの呼び出し
 				int buyerid = (Integer) session.getAttribute("id");
