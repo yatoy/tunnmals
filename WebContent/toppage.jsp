@@ -17,8 +17,9 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-<img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
+
 	<%@ include file="/header.jsp"%>
+	<img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
 	  <div class="card-body">
 	    <h5 class="card-title">みんなの教科書売買システム（仮）</h5>
 	    <p class="card-text">学生同士でやり取りしよう！（仮）</p>
