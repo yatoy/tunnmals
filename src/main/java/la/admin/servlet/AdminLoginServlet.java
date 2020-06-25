@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
 import la.bean.AdminBeans;
 import la.dao.AdminDao;
 
-/**
- * Servlet implementation class AdminLoginServlet
- */
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,13 +24,15 @@ public class AdminLoginServlet extends HttpServlet {
 
 		try {
 			HttpSession session = request.getSession(false);
-			if (session != null) {
+			if (session != null && session.getAttribute("admin_id") != null) {
 
 				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminMenu.jsp");
 				rd.forward(request, response);
+				return;
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
 				rd.forward(request, response);
+				return;
 			}
 
 		} catch (Exception e) {
