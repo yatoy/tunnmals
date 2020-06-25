@@ -62,6 +62,8 @@ public class MemberResignServlet extends HttpServlet {
 			doCheck(request, response);
 		}if("complete".equals(action)) {
 			doComplete(request, response);
+		}if("gototop".equals(action)) {
+			doGotoTop(request,response);
 		}
 	}
 
@@ -100,7 +102,14 @@ public class MemberResignServlet extends HttpServlet {
 		MemberDao dao = new MemberDao();
 		dao.delete(id, password);
 
+		session.invalidate();
+
 		RequestDispatcher rd = request.getRequestDispatcher("/Member/DeleteMemberComplete.jsp");
+		rd.forward(request, response);
+	}
+
+	protected void doGotoTop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/toppage.jsp");
 		rd.forward(request, response);
 	}
 
