@@ -138,7 +138,7 @@ public class PurchaseRegisterServlet extends HttpServlet {
 
 		ExhibitDao dao = new ExhibitDao();
 		int id = bean.getBook_id();
-		bean = dao.update(bean);
+		bean = dao.buy(bean);
 
 		session.removeAttribute("book_id");
 		request.setAttribute("book_id", id);

@@ -46,7 +46,7 @@
 			<input type="email" name="email" readonly="readonly" value="${purchase_buyer.email }"><br>
 			<br>
 			お支払方法：
-			<input type="radio" name="payment_method" value="銀行振込">銀行振込<br>
+			<input type="radio" name="payment_method" value="銀行振込" checked="checked">銀行振込<br>
 			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
 
