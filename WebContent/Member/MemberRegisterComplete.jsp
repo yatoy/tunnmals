@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="alert alert-dark">
 		<h2>あなたの会員番号は${id}です</h2>
-		❕　更新ボタンを押さないでください　❕
+		❕ 更新ボタンを押さないでください ❕
 		</div>
 	</div>
 

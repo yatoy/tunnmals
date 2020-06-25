@@ -157,6 +157,7 @@ public class MemberUpdateServlet extends HttpServlet {
 			}
 
 			gotoPage(request, response, "/Member/MemberUpdateComplete.jsp");
+			return;
 		} else {
 
 			gotoPage(request, response, "/Member/MemberLogin.jsp");
