@@ -16,9 +16,7 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 
 	<h2>新規会員登録</h2>
@@ -47,10 +45,12 @@
 	設定パスワード：<input type="password" name="password1"><br>
 	設定パスワード（再確認）：<input type="password" name="password2" placeholder=""><br>
 	<br>
-	<input type="hidden" name="action" value="check">
-	<input type="submit" value="登録情報の確認">
-	</form>
 
+		<div class="text-center">
+		<input type="hidden" name="action" value="check">
+		<input type="submit"  class="btn btn-success" value="登録情報の確認">
+		</form>
+		</div>
 	</div>
 
 </div>

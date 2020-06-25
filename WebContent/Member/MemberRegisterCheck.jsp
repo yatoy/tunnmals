@@ -27,15 +27,16 @@ String password = request.getParameter("password1");
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 
-	<h2>新規会員登録</h2>
+	<h4>新規会員登録</h4>
 
 	</div>
-	<h3>以下の情報でよろしいですか？</h3>
+		<div class="container">
+		<div class="alert alert-dark">
+		以下の情報でよろしいですか？
+		</div>
 	<form action="/tunnmals/MemberRegisterServlet" method="post">
 	氏名
 	<input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
@@ -46,11 +47,14 @@ String password = request.getParameter("password1");
 	Eメールアドレス<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
 	生年月日<input type="date" name="birthday" readonly="readonly" value="<%=birthday%>"><br>
 	設定パスワード<input type="password" name="password" readonly="readonly" value="<%=password%>"><br>
-
+	<div class="text-center">
+	<br>
 	<input type="hidden" name="action" value="complete">
-	<input type="submit" value="前ページに戻る">
-	<input type="submit" value="会員登録">
+	<a href="/tunnmals/MemberRegisterServlet?action=check" class="btn btn-default">前ページに戻る</a>
+	<input type="submit"  class="btn btn-success" value="会員登録">
+	</div>
 	</form>
+</div>
 </div>
 </body>
 </html>

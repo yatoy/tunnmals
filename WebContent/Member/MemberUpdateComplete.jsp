@@ -15,19 +15,16 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
+	会員情報変更完了
+	<br><br>
+	<form action="/tunnmals/Mypage.jsp" method="get">
+	<input type="submit"  class="btn btn-success"value="マイページ">
+	</form>
+	<br>
+
 	</div>
-<h1>会員情報変更完了</h1>
-
-<h2>会員情報の変更が完了しました</h2>
-
-<form action="/tonnmals/Mypage.jsp" method="get">
-<input type="submit" value="マイページ">
-</form>
-<br>
 </div>
 </body>
 </html>

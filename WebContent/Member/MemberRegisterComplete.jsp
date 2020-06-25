@@ -16,21 +16,23 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 
-	<h1>会員登録完了</h1>
+	会員登録が完了しました
+	<br><br>
+	<div class="container">
+		<div class="alert alert-dark">
+		<h2>あなたの会員番号は${id}です</h2>
+		❕　更新ボタンを押さないでください　❕
+		</div>
+	</div>
 
-	<h2>会員登録が完了しました</h2>
-	<h2>あなたの会員番号は${id}です</h2>
+   <a href="/tunnmals/toppage.jsp" class="btn btn-default">トップページに戻る</a>
+   <a href="/tunnmals/MemberLoginServlet" class="btn btn-success">ログインページへ</a>
 
-	<h3>下のボタンを押すと<br>マイページに進みます</h3>
 
-	<form action="/tunnmals/MemberLoginServlet" method="get">
-	<input type="submit" value="ログインページ">
-	</form>
+
 	</div>
 </div>
 </body>

@@ -26,33 +26,36 @@ String password = request.getParameter("password");
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
-	<h1>会員情報の変更</h1>
+	会員情報の変更
 	</div>
-<h2>変更する情報を入力してください</h2>
+		<div class="container">
+		<div class="alert alert-dark">
+		変更する情報を入力してください
+	</div>
 
-<form action="/tunnmals/MemberRegisterServlet" method="post">
-氏名<input type="text" name="<%= family_name%>"><input type="text" name="<%= first_name%>"><br>
-郵便番号<input type="text" name="<%= postal%>"><br>
-住所<input type="text" name="<%= address%>"><br>
-電話番号<input type="tel" name="<%= tel%>"><br>
-Eメールアドレス<input type="email" name="<%= email%>"><br>
-生年月日<input type="date" name="<%= birthday%>" max="9999-12-31"><br>
-設定パスワード<input type="password" name="password1"><br>
-設定パスワード（再確認）<input type="password" name="password2"><br>
+<form action="/tunnmals/MemberUpdateServlet" method="post">
+氏名：<input type="text" name="<%= family_name%>"><input type="text" name="<%= first_name%>"><br>
+郵便番号：<input type="text" name="<%= postal%>"><br>
+住所：<input type="text" name="<%= address%>"><br>
+電話番号：<input type="tel" name="<%= tel%>"><br>
+Eメールアドレス：<input type="email" name="<%= email%>"><br>
+設定パスワード：<input type="password" name="password1"><br>
+設定パスワード（再確認）：<input type="password" name="password2"><br>
 <br>
-現在のパスワード<input type="password" name="password"><br>
+	現在のパスワード：<input type="password" name="password"><br>
 
-<input type="hidden" name="id" value="<%= id%>">
+	<input type="hidden" name="id" value="<%= id%>">
+	<input type="hidden" name="birthday" value="<%= birthday%>">
 
-<input type="hidden" name="action" value="check">
-<input type="submit" value="戻る">
-<input type="submit" value="登録情報の変更">
+	<div class="text-center">
+	<input type="hidden" name="action" value="check">
+	<input type="submit"  class="btn btn-success" value="登録情報の変更">
+	</div>
 </form>
 <br>
+</div>
 </div>
 </body>
 </html>

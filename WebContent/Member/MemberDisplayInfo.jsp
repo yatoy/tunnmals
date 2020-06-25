@@ -14,30 +14,29 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
-	</div>
+	<%@ include file="/header.jsp"%>
 	</div>
 
 <h1>会員情報表示</h1>
 
 <form action="/tonnmals/MemberServlet" method="get">
-<div><label>氏名</label><p>tes</p></div>
-<div><label>郵便番号</label><p>tes</p></div>
-<div><label>住所</label><p>tes</p></div>
-<div><label>電話番号</label><p>tes</p></div>
-<div><label>Eメールアドレス</label><p>tes</p></div>
-<div><label>生年月日</label><p>tes</p></div>
-<div><label>パスワード</label><p>tes</p></div>
-<input type="submit" value="会員情報の変更">
-</form>
+<div><label>氏名</label><p>${ family_name}${ first_name}</p></div>
+<div><label>郵便番号</label><p>${ postal}</p></div>
+<div><label>住所</label><p>${ address}</p></div>
+<div><label>電話番号</label><p>${ tel}</p></div>
+<div><label>Eメールアドレス</label><p>${ email}</p></div>
+<div><label>生年月日</label><p>${ birthday}</p></div>
+<br>
 
-<form action="/tonnmals/MemberRegisterServlet" method="get">
-<input type="submit" value="退会">
+<a href="/tunnmals/MemberResignServlet" class="btn btn-danger">退会</a>
+<a href="/tunnmals/MemberUpdateServlet" class="btn btn-info">会員情報の変更</a>
+
+</form>
 </form>
 
 <br>
+
+	</div>
 </div>
 </body>
 </html>
