@@ -35,15 +35,16 @@ public class PurchaseRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
 		try {
-			int book_id = (int) request.getAttribute("book_id");
+			int book_id = Integer.parseInt(request.getParameter("book_id"));
 
 			HttpSession session = request.getSession(false);
-			if(session != null) {
-				int buyer_id = (Integer)session.getAttribute("id");
+			if (session != null) {
+				int buyer_id = (Integer) session.getAttribute("id");
 				session.setAttribute("book_id", book_id);
 
 				MemberDao memberdao = new MemberDao();
@@ -52,11 +53,11 @@ public class PurchaseRegisterServlet extends HttpServlet {
 				ExhibitDao exhibitdao = new ExhibitDao();
 				ExhibitBeans exhibitbean = exhibitdao.searchByBookId(book_id);
 
-				request.setAttribute("purchase_buyer", memberbean);
-				request.setAttribute("purchase_book", exhibitbean);
+				session.setAttribute("purchase_buyer", memberbean);
+				session.setAttribute("purchase_book", exhibitbean);
 
 				gotoPage(request, response, "/Purchase/Purchase.jsp");
-			}else {
+			} else {
 				gotoPage(request, response, "/Member/MemberLogin.jsp");
 
 			}
@@ -74,7 +75,8 @@ public class PurchaseRegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
@@ -95,22 +97,26 @@ public class PurchaseRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String payment_method = request.getParameter("payment_method");
+		if (payment_method.equals(null) || "".equals(payment_method)) {
+			doGet(request, response);
+			return;
+		}
 		HttpSession session = request.getSession(false);
 
-		MemberBeans memberbean = (MemberBeans)request.getAttribute("purchase_buyer");
-		ExhibitBeans exhibitbean = (ExhibitBeans)request.getAttribute("purchase_book");
+		MemberBeans memberbean = (MemberBeans) session.getAttribute("purchase_buyer");
+		ExhibitBeans exhibitbean = (ExhibitBeans) session.getAttribute("purchase_book");
 
 		int book_id = exhibitbean.getBook_id();
 		String book_name = exhibitbean.getBook_name();
 		String isbn = exhibitbean.getIsbn();
-		int price= exhibitbean.getPrice();
+		int price = exhibitbean.getPrice();
 		String author = exhibitbean.getAuthor();
 		String quality = exhibitbean.getQuality();
 		String book_class = exhibitbean.getCategory();
 		int seller_id = exhibitbean.getSeller_id();
 		String sell_date = exhibitbean.getSell_date();
 
-		int buyer_id = (int)session.getAttribute("id");
+		int buyer_id = (int) session.getAttribute("id");
 
 		Calendar cal = Calendar.getInstance(); //[1]
 		String buy_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-"
@@ -119,10 +125,6 @@ public class PurchaseRegisterServlet extends HttpServlet {
 		ExhibitBeans buybean = new ExhibitBeans(book_id, book_name, isbn, price, author, quality, book_class,
 				seller_id, sell_date, buyer_id, buy_date, payment_method);
 
-
-		request.setAttribute("purchase_buyer", memberbean);
-		request.setAttribute("purchase_book", exhibitbean);
-		request.setAttribute("purchase", buybean);
 		session.setAttribute("purchase", buybean);
 		gotoPage(request, response, "/Purchase/PurchaseCheck.jsp");
 
@@ -140,7 +142,7 @@ public class PurchaseRegisterServlet extends HttpServlet {
 
 		session.removeAttribute("book_id");
 		request.setAttribute("book_id", id);
-		gotoPage(request, response, "/purchase/PurchaseComplete.jsp");
+		gotoPage(request, response, "/Purchase/PurchaseComplete.jsp");
 	}
 
 	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page)

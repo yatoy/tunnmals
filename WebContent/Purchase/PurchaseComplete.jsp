@@ -22,11 +22,11 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
+	購入しました。<br>
+	<form action="/tunnmals/ExhibitDisplayServlet" method="get">
+	<input type="submit"  class="btn btn-success" value="出品一覧に戻る">
+	</form>
 	</div>
-購入しました。<br>
-<form action="/tunnmals/ExhibitDisplayServlet" method="get">
-<input type="submit" value="出品一覧に戻る">
-</form>
 </div>
 </body>
 </html>
