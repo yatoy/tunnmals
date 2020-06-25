@@ -19,9 +19,7 @@
 	</div>
 	会員情報変更完了
 	<br><br>
-	<form action="/tunnmals/Mypage.jsp" method="get">
-	<input type="submit"  class="btn btn-success"value="マイページ">
-	</form>
+	<a class="btn btn-success" href="/tunnmals/MemberLoginServlet">マイページ</a>
 	<br>
 
 	</div>

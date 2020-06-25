@@ -24,18 +24,24 @@ public class MemberUpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		//		String type = request.getParameter("action");
 
 		try {
 			HttpSession session = request.getSession(false);
-			int id = (int) session.getAttribute("id");
 
-			MemberDao dao = new MemberDao();
-			MemberBeans bean = new MemberBeans();
-			bean = dao.searchById(id);
-			request.setAttribute("member", bean);
+			if (session != null && session.getAttribute("id") != null) {
 
-			gotoPage(request, response, "/Member/MemberUpdate.jsp");
+				int id = (int) session.getAttribute("id");
+
+				MemberDao dao = new MemberDao();
+				MemberBeans bean = new MemberBeans();
+				bean = dao.searchById(id);
+				request.setAttribute("member", bean);
+
+				gotoPage(request, response, "/Member/MemberUpdate.jsp");
+			} else {
+
+				gotoPage(request, response, "/Member/MemberLogin.jsp");
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,21 +74,16 @@ public class MemberUpdateServlet extends HttpServlet {
 	protected void doCheck(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int id = Integer.parseInt(request.getParameter("id"));
 		String family_name = request.getParameter("family_name");
 		String first_name = request.getParameter("first_name");
 		String postal = request.getParameter("postal");
 		String address = request.getParameter("address");
 		String tel = request.getParameter("tel");
-		String email = request.getParameter("email");
 		String birthday = request.getParameter("birthday");
+		String email = request.getParameter("email");
 		String password1 = request.getParameter("password1");
 		String password2 = request.getParameter("password2");
-		String password = request.getParameter("password");
-
-		if (email == null || "".equals(email)) {
-			email = "未登録";
-		}
+		String register_date = request.getParameter("register_date");
 
 		if (family_name == null || "".equals(family_name)
 				|| first_name == null || "".equals(first_name)
@@ -90,45 +91,77 @@ public class MemberUpdateServlet extends HttpServlet {
 				|| address == null || "".equals(address)
 				|| tel == null || "".equals(tel)
 				|| birthday == null || "".equals(birthday)
-				|| password == null || "".equals(password)) {
+				|| email == null || "".equals(email)
+				|| password1 == null || "".equals(password1)
+				|| password2 == null || "".equals(password2)) {
 
 			doGet(request, response);
 			return;
 		}
 
-		MemberDao dao = new MemberDao();
-		MemberBeans bean = new MemberBeans();
-		bean = dao.searchById(id);
+		if (!password1.equals(password2)) {
+			gotoPage(request, response, "/Member/MemberUpdate.jsp");
+			return;
+		}
 
-		if (password1.equals(password2) && password.equals(bean.getPassword())) {
-			request.setAttribute("member", bean);
+		HttpSession session = request.getSession(false);
+
+		if (session != null && session.getAttribute("id") != null) {
+			Calendar cal = Calendar.getInstance();
+			String change_date = cal.get(Calendar.YEAR)
+					+ "-"
+					+ (cal.get(Calendar.MONTH) + 1)
+					+ "-"
+					+ cal.get(Calendar.DATE);
+
+			MemberBeans bean = new MemberBeans(
+					(int) session.getAttribute("id"),
+					family_name,
+					first_name,
+					postal,
+					address,
+					tel,
+					email,
+					birthday,
+					password1,
+					register_date,
+					change_date);
+
+			session.setAttribute("member", bean);
+
 			gotoPage(request, response, "/Member/MemberUpdateCheck.jsp");
+			return;
+		} else {
+
+			gotoPage(request, response, "/Member/MemberLogin.jsp");
+			return;
 		}
 
 	}
 
 	protected void doComplete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		String family_name = request.getParameter("family_name");
-		String first_name = request.getParameter("first_name");
-		String postal = request.getParameter("postal");
-		String address = request.getParameter("address");
-		String tel = request.getParameter("tel");
-		String email = request.getParameter("email");
-		String birthday = request.getParameter("birthday");
-		String password = request.getParameter("password");
-		String register_date = request.getParameter("register_date");
 
-		//memberテーブルに追加
-		MemberDao dao = new MemberDao();
-		Calendar cal = Calendar.getInstance(); //[1]
+		HttpSession session = request.getSession(false);
 
-		String change_date = cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DATE);
-		MemberBeans bean = new MemberBeans(id, family_name, first_name, postal, address, tel, email,
-				birthday, password, register_date, change_date);
-		bean = dao.update(bean);
-		gotoPage(request, response, "/Member/MemberUpdateComplete.jsp");
+		if (session != null && session.getAttribute("id") != null && session.getAttribute("member") != null) {
+
+			MemberDao dao = new MemberDao();
+
+			MemberBeans bean = dao.update((MemberBeans) session.getAttribute("member"));
+
+			if (bean == null) {
+				request.setAttribute("message", "内部エラーが発生しました。");
+				gotoPage(request, response, "/errInternal.jsp");
+
+			}
+
+			gotoPage(request, response, "/Member/MemberUpdateComplete.jsp");
+		} else {
+
+			gotoPage(request, response, "/Member/MemberLogin.jsp");
+			return;
+		}
 	}
 
 	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page)
