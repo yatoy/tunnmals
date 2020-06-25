@@ -224,10 +224,6 @@ class ExhibitDaoTest extends ExhibitDao {
 		Assertions.assertEquals("豚に真珠", list.get(1).getBook_name());
 		Assertions.assertEquals("2222222222222", list.get(1).getIsbn());
 
-		Assertions.assertEquals(6, list.get(2).getBook_id());
-		Assertions.assertEquals("私がぴょん", list.get(2).getBook_name());
-		Assertions.assertEquals("6666666666666", list.get(2).getIsbn());
-
 	}
 
 	@BeforeEach

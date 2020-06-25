@@ -36,6 +36,9 @@ public class ExhibitDisplayServlet extends HttpServlet {
 			//出品DAOの呼び出し
 			ExhibitDao dao = new ExhibitDao();
 
+			//すべての出品された本の設定
+			List<ExhibitBeans> list_all;
+
 			//セッション管理でログインの有無確認
 			if (session != null && session.getAttribute("id") != null) {
 
@@ -45,10 +48,11 @@ public class ExhibitDisplayServlet extends HttpServlet {
 				//自分が出品した本の設定
 				List<ExhibitBeans> mylist = dao.searchBySellerId(sellerid);
 				request.setAttribute("myexhibit", mylist);
+				list_all = dao.searchByNotSellerId(sellerid);
+			} else {
+				list_all = dao.searchAll();
 			}
 
-			//すべての出品された本の設定
-			List<ExhibitBeans> list_all = dao.searchAll();
 			request.setAttribute("allexhibit", list_all);
 
 			//出品表示

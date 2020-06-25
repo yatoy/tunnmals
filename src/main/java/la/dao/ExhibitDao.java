@@ -211,7 +211,7 @@ public class ExhibitDao {
 
 	public List<ExhibitBeans> searchAll() {
 
-		String sql = "SELECT * FROM exhibit";
+		String sql = "SELECT * FROM exhibit WHERE buyer_id = 0";
 		List<ExhibitBeans> list = new ArrayList<ExhibitBeans>();
 
 		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
@@ -287,7 +287,7 @@ public class ExhibitDao {
 
 	public List<ExhibitBeans> searchBySellerId(int seller_id) {
 
-		String sql = "SELECT * FROM exhibit WHERE seller_id=?";
+		String sql = "SELECT * FROM exhibit WHERE seller_id=? AND buyer_id = 0";
 
 		List<ExhibitBeans> list = new ArrayList<ExhibitBeans>();
 
@@ -363,7 +363,7 @@ public class ExhibitDao {
 
 	public List<ExhibitBeans> searchByNotSellerId(int seller_id) {
 
-		String sql = "SELECT * FROM exhibit WHERE seller_id!=?";
+		String sql = "SELECT * FROM exhibit WHERE seller_id!=? AND buyer_id = 0";
 
 		List<ExhibitBeans> list = new ArrayList<ExhibitBeans>();
 
