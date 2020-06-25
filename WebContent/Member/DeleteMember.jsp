@@ -20,10 +20,9 @@
 	<div class="text-center">
 	<div class="container">
 		<div class="alert alert-dark">
-		ご自身の情報を入力してください
+		パスワードを入力してください
 		</div>
 	</div>
-	<input type="text" name="id" placeholder="会員ID"><br>
 	<input type="password" name="password" placeholder="パスワード"><br>
 	<br>
 	<input type="hidden" name="action" value="check">

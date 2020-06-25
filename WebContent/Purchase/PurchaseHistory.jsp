@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>購入履歴</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <div class="card">
@@ -12,6 +14,7 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
+	<%@ include file="/logout.jsp"%>
 	</div>
 	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
