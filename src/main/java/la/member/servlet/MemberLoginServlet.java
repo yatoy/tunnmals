@@ -26,9 +26,17 @@ public class MemberLoginServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
+		HttpSession session = request.getSession(false);
+
 		try {
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");
-			rd.forward(request, response);
+			if (session != null && session.getAttribute("id") != null) {
+				RequestDispatcher rd = request.getRequestDispatcher("/Member/Mypage.jsp");
+				rd.forward(request, response);
+			} else {
+
+				RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");
+				rd.forward(request, response);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,21 +20,55 @@
 	  </div>
 	</div>
 	</div>
-	<a href="/tunnmals/AdminLoginServlet">マイページに戻る</a>
+	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
+
+	<c:forEach items="${myexhibit}" var="exhibit">
 	<div>
 		<img height="100" width="100" src="/tunnmals/noimage.png">
 		<p>タイトル</p>
+		<p>${exhibit.book_name}</p>
 		<p>ISBN番号</p>
+		<p>${exhibit.isbn}</p>
 		<p>販売価格</p>
+		<p>${exhibit.price}</p>
 		<p>著者</p>
+		<p>${exhibit.author}</p>
 		<p>状態</p>
+		<p>${exhibit.quality}</p>
 		<p>分類</p>
+		<p>${exhibit.category}</p>
 		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
 			<input type="hidden" name="action" value="check">
+			<input type="hidden" name="book_id" value="${exhibit.book_id}">
 			<input type="submit" value="削除">
 		</form>
+		<form action="/tunnmals/Servlet" method="post">
+			<input type="hidden" name="action" value="check">
+			<input type="hidden" name="book_id" value="${exhibit.book_id}">
+			<input type="submit" value="更新">
+		</form>
 	</div>
+	</c:forEach>
+
+
+	<c:forEach items="${allexhibit}" var="exhibit">
+	<div>
+		<img height="100" width="100" src="/tunnmals/noimage.png">
+		<p>タイトル</p>
+		<p>${exhibit.book_name}</p>
+		<p>ISBN番号</p>
+		<p>${exhibit.isbn}</p>
+		<p>販売価格</p>
+		<p>${exhibit.price}</p>
+		<p>著者</p>
+		<p>${exhibit.author}</p>
+		<p>状態</p>
+		<p>${exhibit.quality}</p>
+		<p>分類</p>
+		<p>${exhibit.category}</p>
+	</div>
+	</c:forEach>
 
 
 </div>
