@@ -20,9 +20,7 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 	出品しました。<br>
 	<a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-success">出品一覧に戻る</a>
