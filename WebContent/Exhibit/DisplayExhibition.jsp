@@ -22,40 +22,57 @@
 	</div>
 	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
+
+	<c:forEach items="${myexhibit}" var="exhibit">
 	<div>
-	あなたの出品した商品
-	<c:forEach items="${textbook}" var="employee">
-		<div class="container">
-			<div class="alert alert-dark">
-			<img height="100" width="100" src="/tunnmals/noimage.png">
-			<p>タイトル：${textbook.book_name}</p>
-			<p>ISBN番号：${textbook.isbn}</p>
-			<p>販売価格：${textbook.price}</p>
-			<p>著者：${textbook.author}</p>
-			<p>状態：${textbook.quality}</p>
-			<p>分類：${textbook.class}</p>
-	    <a href="/tunnmals/ExhibitUpdateServlet" class="btn btn-success">更新</a>
-	    <a href="/tunnmals/ExhibitDeleteServlet?action=check" class="btn btn-danger">削除</a>
-			</div>
-		</div>
-	</c:forEach>
+
+		<img height="100" width="100" src="/tunnmals/noimage.png">
+		<p>タイトル</p>
+		<p>${exhibit.book_name}</p>
+		<p>ISBN番号</p>
+		<p>${exhibit.isbn}</p>
+		<p>販売価格</p>
+		<p>${exhibit.price}</p>
+		<p>著者</p>
+		<p>${exhibit.author}</p>
+		<p>状態</p>
+		<p>${exhibit.quality}</p>
+		<p>分類</p>
+		<p>${exhibit.category}</p>
+		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
+			<input type="hidden" name="action" value="check">
+			<input type="hidden" name="book_id" value="${exhibit.book_id}">
+			<input type="submit" value="削除">
+		</form>
+		<form action="/tunnmals/Servlet" method="post">
+			<input type="hidden" name="action" value="check">
+			<input type="hidden" name="book_id" value="${exhibit.book_id}">
+			<input type="submit" value="更新">
+		</form>
 	</div>
-	<br><br>
-	出品されている商品
-	<c:forEach items="${textbook}" var="employee">
-		<div class="container">
-			<div class="alert alert-dark">
-			<img height="100" width="100" src="/tunnmals/noimage.png">
-			<p>タイトル：${textbook.book_name}</p>
-			<p>ISBN番号：${textbook.isbn}</p>
-			<p>販売価格：${textbook.price}</p>
-			<p>著者：${textbook.author}</p>
-			<p>状態：${textbook.quality}</p>
-			<p>分類：${textbook.class}</p>
-	    <a href="/tunnmals/PurchaseRegisterServlet" class="btn btn-success">購入</a>
-			</div>
-		</div>
+
 	</c:forEach>
+
+
+	<c:forEach items="${allexhibit}" var="exhibit">
+	<div>
+		<img height="100" width="100" src="/tunnmals/noimage.png">
+		<p>タイトル</p>
+		<p>${exhibit.book_name}</p>
+		<p>ISBN番号</p>
+		<p>${exhibit.isbn}</p>
+		<p>販売価格</p>
+		<p>${exhibit.price}</p>
+		<p>著者</p>
+		<p>${exhibit.author}</p>
+		<p>状態</p>
+		<p>${exhibit.quality}</p>
+		<p>分類</p>
+		<p>${exhibit.category}</p>
+	</div>
+	</c:forEach>
+
+
 </div>
 </body>
 </html>

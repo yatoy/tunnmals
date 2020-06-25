@@ -25,9 +25,7 @@
 	  </div>
 	</div>
 出品情報を削除しました。<br>
-<form action="/tunnmals/ExhibitDisplayServlet" method="get">
-<input type="submit" value="出品一覧に戻る">
-</form>
+<a href="/tunnmals/ExhibitDisplayServlet">出品一覧に戻る</a>
 </div>
 </div>
 </body>

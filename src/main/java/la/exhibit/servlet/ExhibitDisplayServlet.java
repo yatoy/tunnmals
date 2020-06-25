@@ -37,7 +37,7 @@ public class ExhibitDisplayServlet extends HttpServlet {
 			ExhibitDao dao = new ExhibitDao();
 
 			//セッション管理でログインの有無確認
-			if (session != null) {
+			if (session != null && session.getAttribute("id") != null) {
 
 				//セッションから出品者IDの呼び出し
 				int sellerid = (Integer) session.getAttribute("id");
@@ -52,7 +52,7 @@ public class ExhibitDisplayServlet extends HttpServlet {
 			request.setAttribute("allexhibit", list_all);
 
 			//出品表示
-			RequestDispatcher rd = request.getRequestDispatcher("/Member/AdminDisplayMember.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Exhibit/DisplayExhibition.jsp");
 			rd.forward(request, response);
 
 		} catch (Exception e) {

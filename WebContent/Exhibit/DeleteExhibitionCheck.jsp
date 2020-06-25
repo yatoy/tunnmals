@@ -76,6 +76,7 @@ if("0".equals("clno")){
 			<p>分類：<%= cl%></p>
 			<p>状態：<%= quality%></p>
 			<p>価格：<%= price%></p>
+
 			</div>
 
 		</div>
@@ -83,11 +84,35 @@ if("0".equals("clno")){
 			<input type="hidden" name="action" value="complete">
 			<input class="btn btn-success" type="submit" value="削除する">
 
+
 		</form>
 		</div>
 
 
+
+				<div>
+					<h2>商品情報</h2>
+					<img height="100" width="100" src="/tunnmals/noimage.png">
+					<p>ISBN番号</p>
+					<p>${exhibit.isbn}</p>
+					<p>タイトル</p>
+					<p>${exhibit.book_name}</p>
+					<p>著者</p>
+					<p>${exhibit.author}</p>
+					<p>分類</p>
+					<p>${exhibit.category}</p>
+					<p>状態</p>
+					<p>${exhibit.quality}</p>
+					<p>価格</p>
+					<p>${exhibit.price}</p>
+				</div>
+
+		</div>
+				<form action="/tunnmals/ExhibitDeleteServlet" method="post">
+					<input type="hidden" name="action" value="complete">
+					<input class="btn btn-success" type="submit" value="削除する">
+				</form>
+		<a href="/tunnmals/ExhibitDisplayServlett">キャンセル</a>
 	</div>
-</div>
 </body>
 </html>

@@ -13,26 +13,13 @@ import javax.servlet.http.HttpSession;
 import la.bean.ExhibitBeans;
 import la.dao.ExhibitDao;
 
-/**
- * Servlet implementation class ExhibitDeleteServlet
- */
 @WebServlet("/ExhibitDeleteServlet")
 public class ExhibitDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExhibitDeleteServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
@@ -46,60 +33,67 @@ public class ExhibitDeleteServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 
-
-
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 
 		// actionリクエストパラメータの読込
 		String action = request.getParameter("action");
 
-		if("check".equals(action)) {
+		if ("check".equals(action)) {
 			doCheck(request, response);
-		}if("complete".equals(action)) {
+		}
+		if ("complete".equals(action)) {
 			doComplete(request, response);
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doCheck(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int book_id = Integer.parseInt(request.getParameter("book_id"));
+	protected void doCheck(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		// ExhibitDAOから呼び出し
-		ExhibitDao dao = new ExhibitDao();
-		ExhibitBeans bean = new ExhibitBeans();
-		bean = dao.searchByBookId(book_id);
+		HttpSession session = request.getSession(false);
 
-		if(bean!=null) {
-			HttpSession session = request.getSession(false);
-			session.setAttribute("book_id", book_id);
+		if (session != null && session.getAttribute("id") != null) {
+			int book_id = Integer.parseInt(request.getParameter("book_id"));
 
-			RequestDispatcher rd = request.getRequestDispatcher("/Exhibit/DeleteExhibitionCheck.jsp");
+			// ExhibitDAOから呼び出し
+			ExhibitDao dao = new ExhibitDao();
+			ExhibitBeans bean = new ExhibitBeans();
+			bean = dao.searchByBookId(book_id);
+
+			if (bean != null) {
+				session.setAttribute("exhibit", bean);
+
+				RequestDispatcher rd = request.getRequestDispatcher("/Exhibit/DeleteExhibitionCheck.jsp");
+				rd.forward(request, response);
+			}
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");
 			rd.forward(request, response);
 		}
+
 	}
 
-	/**
-	 * @see HttpServlet#doComplete(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doComplete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doComplete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		int book_id = (int) session.getAttribute("book_id");
 
-		// MemberDAOから呼び出し
-		ExhibitDao dao = new ExhibitDao();
-		dao.delete(book_id);
+		if (session != null && session.getAttribute("id") != null) {
 
-		RequestDispatcher rd = request.getRequestDispatcher("/Exhibit/DeleteExhibitionComplete.jsp");
-		rd.forward(request, response);
+			ExhibitBeans bean = (ExhibitBeans) session.getAttribute("exhibit");
+			ExhibitDao dao = new ExhibitDao();
+			dao.delete(bean.getBook_id());
+
+			RequestDispatcher rd = request.getRequestDispatcher("/Exhibit/DeleteExhibitionComplete.jsp");
+			rd.forward(request, response);
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/Member/MemberLogin.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 }
