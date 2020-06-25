@@ -106,6 +106,9 @@ public class MemberLoginServlet extends HttpServlet {
 					rd.forward(request, response);
 				}
 			}
+		} catch (NumberFormatException e) {
+			doGet(request, response);
+			return;
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("message", "内部エラーが発生しました。");
