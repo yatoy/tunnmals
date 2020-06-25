@@ -18,18 +18,18 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 		</div>
-マイページ
-<br>
+	<%@ include file="/logout.jsp"%>
 <br>
 	<div class="container">
 		<div class="alert alert-dark">
 		<h3>${name}さん、こんにちは！</h3>
 	</div>
 	</div>
+
 <a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-info">出品の表示</a>
 
 <br>
-
+<br>
 
 <a href="/tunnmals/ExhibitRegisterServlet" class="btn btn-info">教科書の出品</a>
 

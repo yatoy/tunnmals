@@ -22,27 +22,24 @@
 		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
-	</div>
 	<div class="container">
 		<div class="alert alert-dark">
 			以下の情報でよろしいですか？
 		</div>
 		<div>
+			<div class="container">
+			<div class="alert alert-dark">
 			<h2>商品情報</h2>
 			<div>
 			<img height="100" width="100" src="/tunnmals/noimage.png">
-			<p>ISBN番号</p>
-			<p>${exhibit.isbn}</p>
-			<p>タイトル</p>
-			<p>${exhibit.book_name}</p>
-			<p>著者</p>
-			<p>${exhibit.author}</p>
-			<p>分類</p>
-			<p>${exhibit.category}</p>
-			<p>状態</p>
-			<p>${exhibit.quality}</p>
-			<p>価格</p>
-			<p>${exhibit.price}</p>
+			<p>ISBN番号：${exhibit.isbn}</p>
+			<p>タイトル：${exhibit.book_name}</p>
+			<p>著者：${exhibit.author}</p>
+			<p>分類：${exhibit.category}</p>
+			<p>状態：${exhibit.quality}</p>
+			<p>価格：${exhibit.price}</p>
+			</div>
+			</div>
 			</div>
 			<form action="/tunnmals/ExhibitRegisterServlet" method="post">
 				<input type="hidden" name="action" value="complete">
@@ -50,6 +47,8 @@
 
 			</form>
 		</div>
+	</div>
+
 	</div>
 </div>
 </body>

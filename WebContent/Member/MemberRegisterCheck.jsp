@@ -42,9 +42,9 @@ String password = request.getParameter("password1");
 	<input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
 	<input type="text" name="first_name" readonly="readonly" value="<%=first_name%>"><br>
 	郵便番号<input type="text" name="postal" readonly="readonly" value="<%=postal%>"><br>
-	住所<input type="text" name="address" readonly="readonly" value="<%=address%>"><br>
+	住所<input type="text" name="address" size="60" readonly="readonly" value="<%=address%>"><br>
 	電話番号<input type="tel" name="tel" readonly="readonly" value="<%=tel%>"><br>
-	Eメールアドレス<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
+	Eメールアドレス<input type="email" size="30" name="email" readonly="readonly" value="<%=email%>"><br>
 	生年月日<input type="date" name="birthday" readonly="readonly" value="<%=birthday%>"><br>
 	設定パスワード<input type="password" name="password" readonly="readonly" value="<%=password%>"><br>
 	<div class="text-center">
