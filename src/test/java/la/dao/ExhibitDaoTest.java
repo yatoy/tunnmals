@@ -72,7 +72,7 @@ class ExhibitDaoTest extends ExhibitDao {
 				"2019-08-20",
 				"銀行");
 
-		bean = dao.update(bean);
+		bean = dao.buy(bean);
 
 		Assertions.assertEquals(3, bean.getBook_id());
 		Assertions.assertEquals("亀とウサギと私", bean.getBook_name());

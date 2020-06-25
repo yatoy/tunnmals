@@ -28,35 +28,50 @@
 		変更する内容を入力してください。<br>
 		</div>
 		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
-			画像：<img height="100" width="100" src="/tunnmals/noimage.png"><br>
-			タイトル（必須）：<br><input type="text" name="book_name"><br>
-			ISBN番号（必須）：<input type="text" name="isbn"><br>
-			販売価格（必須）：
-			<input type="text" name="price"><br>
+			<p>
+				画像：<img height="100" width="100" src="/tunnmals/noimage.png">
+			</p>
+			<p>
+				タイトル（必須）：<input type="text" name="book_name" value="${exhibit.book_name}">
+			</p>
+			<p>
+				ISBN番号（必須）：<input type="text" name="isbn" value="${exhibit.isbn}">
+			</p>
+			<p>
+			販売価格（必須）： <input type="text" name="price" value="${exhibit.price}">
+			</p>
+			<p>
 			著者：
-			<input type="text" name="author"><br>
-			状態（必須）：<select name="quality">
-			<option value="null">選択してください</option>
-			<option value="新品">新品</option>
-			<option value="未使用">未使用</option>
-			<option value="中古">中古</option>
-			</select>
-			<br>
-			分類（必須）：<select name="class">
-			<option value="null">選択してください</option>
-			<option value="0">文学部系 </option>
-			<option value="1">教育学部系</option>
-			<option value="2">法学部系</option>
-			<option value="3">社会学部系</option>
-			<option value="4">経済学部系</option>
-			<option value="5">理学部系</option>
-			<option value="6">医学部系</option>
-			<option value="7">歯学部系</option>
-			<option value="8">薬学部系</option>
-			<option value="9">工学部系</option>
-			<option value="10">農学部系</option>
-			</select>
-			<br>
+			<input type="text" name="author" value="${exhibit.author}">
+			</p>
+			<p>
+				状態（必須）：
+				<select name="quality">
+					<option value="null">選択してください</option>
+					<option value="新品">新品</option>
+					<option value="未使用">未使用</option>
+					<option value="中古">中古</option>
+				</select>
+			</p>
+			<p>
+				分類（必須）：
+				<select name="class">
+					<option value="null">選択してください</option>
+					<option value="文学部系">文学部系 </option>
+					<option value="教育学部系">教育学部系</option>
+					<option value="法学部系">法学部系</option>
+					<option value="社会学部系">社会学部系</option>
+					<option value="経済学部系">経済学部系</option>
+					<option value="理学部系">理学部系</option>
+					<option value="医学部系">医学部系</option>
+					<option value="歯学部系">歯学部系</option>
+					<option value="薬学部系">薬学部系</option>
+					<option value="工学部系">工学部系</option>
+					<option value="農学部系">農学部系</option>
+				</select>
+			</p>
+			<input type="hidden" name="book_id" value="${exhibit.book_id}">
+			<input type="hidden" name="sell_date" value="${exhibit.sell_date}">
 			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
 		</form>

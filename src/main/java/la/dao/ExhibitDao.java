@@ -114,7 +114,7 @@ public class ExhibitDao {
 
 	}
 
-	public ExhibitBeans update(ExhibitBeans bean) {
+	public ExhibitBeans buy(ExhibitBeans bean) {
 		String sql = "UPDATE exhibit SET "
 				+ "book_name=?,"
 				+ "isbn=?,"
@@ -144,6 +144,41 @@ public class ExhibitDao {
 			st.setDate(10, Date.valueOf(bean.getBuy_date()));
 			st.setString(11, bean.getPayment_method());
 			st.setInt(12, bean.getBook_id());
+
+			st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+
+		}
+
+		return searchByBookId(bean.getBook_id());
+	}
+
+	public ExhibitBeans update(ExhibitBeans bean) {
+		String sql = "UPDATE exhibit SET "
+				+ "book_name=?,"
+				+ "isbn=?,"
+				+ "price=?,"
+				+ "author=?,"
+				+ "quality=?,"
+				+ "class=?,"
+				+ "seller_id=?,"
+				+ "sell_date=?"
+				+ " WHERE book_id=?";
+
+		try (Connection con = DriverManager.getConnection(this.url, this.user, this.pass);
+				PreparedStatement st = con.prepareStatement(sql);) {
+
+			st.setString(1, bean.getBook_name());
+			st.setString(2, bean.getIsbn());
+			st.setInt(3, bean.getPrice());
+			st.setString(4, bean.getAuthor());
+			st.setString(5, bean.getQuality());
+			st.setString(6, bean.getCategory());
+			st.setInt(7, bean.getSeller_id());
+			st.setDate(8, Date.valueOf(bean.getSell_date()));
+			st.setInt(9, bean.getBook_id());
 
 			st.executeUpdate();
 		} catch (SQLException e) {

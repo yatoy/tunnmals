@@ -33,17 +33,17 @@
 			<div>
 			<img height="100" width="100" src="/tunnmals/noimage.png">
 			<p>ISBN番号</p>
-			<p>5555555567</p>
+			<p>${exhibit.isbn}</p>
 			<p>タイトル</p>
-			<p>******</p>
+			<p>${exhibit.book_name}</p>
 			<p>著者</p>
-			<p>*****</p>
+			<p>${exhibit.author}</p>
 			<p>分類</p>
-			<p>*****</p>
+			<p>${exhibit.category}</p>
 			<p>状態</p>
-			<p>*****</p>
+			<p>${exhibit.quality}</p>
 			<p>価格</p>
-			<p>*******</p>
+			<p>${exhibit.price}</p>
 			</div>
 			<input type="hidden" name="action" value="complete">
 			<input class="btn btn-success" type="submit" value="更新する">

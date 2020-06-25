@@ -17,18 +17,16 @@
 <title>更新完了画面</title>
 </head>
 <body>
-<div class="card">
-	<div class="text-center">
-	<div class="card text-white bg-info mb-3">
-	<%@ include file="/header.jsp"%>
-	</div>
-	</div>
-出品しました。<br>
+	<div class="card">
+		<div class="text-center">
+			<div class="card text-white bg-info mb-3">
+				<%@ include file="/header.jsp"%>
+			</div>
+		</div>
+		出品しました。
 
-<form action="/tunnmals/ExhibitDisplayServlet" method="get">
-<input type="submit" value="出品一覧に戻る">
-</form>
-</div>
+		<a href="/tunnmals/ExhibitDisplayServlet">出品一覧に戻る</a>
+	</div>
 
 </body>
 </html>
