@@ -63,9 +63,8 @@
 		<p>著者：${exhibit.author}</p>
 		<p>状態：${exhibit.quality}</p>
 		<p>分類：${exhibit.category}</p>
-		<form action="/tunnmals/PurchaseRegisterServlet" method="post">
+		<form action="/tunnmals/PurchaseRegisterServlet" method="get">
 		<input type="hidden" name="book_id" value="${exhibit.book_id}">
-		<input type="hidden" name="action" value="check">
 		<input type="submit" class="btn btn-success" value="購入">
 		</form>
 
