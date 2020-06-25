@@ -18,30 +18,33 @@
 			</div>
 
 			<h1>会員情報表示</h1>
-
+			<div>
+				<label>ID</label>
+				：${member.id}
+			</div>
 			<div>
 				<label>氏名</label>
-				<p>${member.family_name}${member.first_name}</p>
+				：${member.family_name}${member.first_name}
 			</div>
 			<div>
 				<label>郵便番号</label>
-				<p>${member.postal}</p>
+				：${member.postal}
 			</div>
 			<div>
 				<label>住所</label>
-				<p>${member.address}</p>
+				：${member.address}
 			</div>
 			<div>
 				<label>電話番号</label>
-				<p>${member.tel}</p>
+				：${member.tel}
 			</div>
 			<div>
 				<label>Eメールアドレス</label>
-				<p>${member.email}</p>
+				：${member.email}
 			</div>
 			<div>
 				<label>生年月日</label>
-				<p>${member.birthday}</p>
+				：${member.birthday}
 			</div>
 			<a href="/tunnmals/MemberResignServlet" class="btn btn-danger">退会</a>
 			<a href="/tunnmals/MemberUpdateServlet" class="btn btn-info">会員情報の変更</a>

@@ -22,8 +22,19 @@
 
 
 	<div class="text-center">
-	<h4>ログインしてください</h4>
 
+		<%
+			String type = request.getParameter("error");
+			String message = "ログインしてください";
+			if ("check".equals(type)) {
+				message = "IDまたはパスワードが間違っています";
+			}
+		%>
+		<div class="container">
+			<div class="alert alert-dark">
+				<%=message%>
+			</div>
+		</div>
 	<form action="/tunnmals/MemberLoginServlet" method="post">
 	<input type="text" name="id" placeholder="会員ID"><br>
 	<input type="password" name="password" placeholder="パスワード"><br>

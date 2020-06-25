@@ -21,8 +21,8 @@
 	<%@ include file="/header.jsp"%>
 	<img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
 	  <div class="card-body">
-	    <h5 class="card-title">みんなの教科書売買システム（仮）</h5>
-	    <p class="card-text">学生同士でやり取りしよう！（仮）</p>
+	    <h5 class="card-title">みんなの教科書売買システム</h5>
+	    <p class="card-text">学生同士でやり取りしよう！</p>
 
 	  </div>
 	</div>
@@ -30,15 +30,7 @@
 	    <a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-info">出品一覧</a>
 
 	</div>
-	<div class="dropdown">
-	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    早速はじめる
-	  </button>
-	  <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-		<a class="dropdown-item" href="/tunnmals/MemberLoginServlet">ログインする</a>
-	  	<a class="dropdown-item" href="/tunnmals/ExhibitDisplayServlet">出品一覧</a>
-	  </div>
-	</div>
+<br>
 
 
 </div>
