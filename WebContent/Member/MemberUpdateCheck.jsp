@@ -33,13 +33,14 @@ String register_date = request.getParameter("register_date");
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
-<h1>会員情報変更の確認</h1>
+
+	<div class="container">
+	<div class="alert alert-dark">
+	以下の情報でよろしいですか？
 	</div>
-<form action="/tunnmals/MemberServlet" method="get">
+<form action="/tunnmals/MemberUpdateServlet" method="get">
 氏名
 <input type="text" name="family_name" readonly="readonly" value="<%=family_name%>">
 <input type="text" name="first_name" readonly="readonly" value="<%=first_name%>"><br>
@@ -49,14 +50,15 @@ String register_date = request.getParameter("register_date");
 Eメールアドレス<input type="email" name="email" readonly="readonly" value="<%=email%>"><br>
 生年月日<input type="date" name="birthday" readonly="readonly" value="<%=birthday%>"><br>
 設定パスワード<input type="password" name="password" readonly="readonly" value="<%=password%>">（<%= message%>）<br>
-<input type="hidden" name="register_date" value="<%= register_date%>">
+<br><input type="hidden" name="register_date" value="<%= register_date%>">
 
-
-<input type="submit" value="前ページに戻る">
-<input type="submit" value="会員情報の変更">
+	<a href="/tunnmals/MemberUpdateServlet?action=check" class="btn btn-default">前ページに戻る</a>
+	<input type="submit"  class="btn btn-success" value="会員登録">
 </form>
 
 <br>
+</div>
+</div>
 </div>
 </body>
 </html>

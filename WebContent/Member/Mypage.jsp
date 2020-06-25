@@ -16,33 +16,36 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
-	</div>
-	</div>
-<h1>マイページ</h1>
-	</div>
-
+	<%@ include file="/header.jsp"%>
+		</div>
+マイページ
+<br>
+<br>
 	<div class="container">
 		<div class="alert alert-dark">
 		<h3>${name}さん、こんにちは！</h3>
 	</div>
-
-<a href="/tunnmals/ExhibitDisplayServlet">出品の表示</a>
-
-<br>
-<a href="/tunnmals/ExhibitRegisterServlet">教科書の出品</a>
+	</div>
+<a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-info">出品の表示</a>
 
 <br>
-<a href="/tunnmals/Servlet">会員情報</a>
+
+
+<a href="/tunnmals/ExhibitRegisterServlet" class="btn btn-info">教科書の出品</a>
 
 <br>
-<a href="/tunnmals/Servlet">購入履歴</a>
+<br>
+<a href="/tunnmals/PurchaseHistoryServlet" class="btn btn-info">購入履歴</a>
 
 <br>
+<br>
+<a href="/tunnmals/MemberDisplayServlet" class="btn btn-success">会員情報</a>
+
+<br>
+
 
 
 </div>
+</div>>
 </body>
 </html>

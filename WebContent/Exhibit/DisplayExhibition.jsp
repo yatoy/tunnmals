@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Login</title>
+<title>出品の表示（会員）</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -25,6 +25,7 @@
 
 	<c:forEach items="${myexhibit}" var="exhibit">
 	<div>
+
 		<img height="100" width="100" src="/tunnmals/noimage.png">
 		<p>タイトル</p>
 		<p>${exhibit.book_name}</p>
@@ -49,6 +50,7 @@
 			<input type="submit" value="更新">
 		</form>
 	</div>
+
 	</c:forEach>
 
 

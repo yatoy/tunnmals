@@ -14,21 +14,21 @@
 </head>
 
 <body>
-<div class="card text-center">
+<div class="card">
+	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
 <img class="card-img-bottom" src="3234900_s.jpg" alt="Card image cap">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	  <div class="card-body">
 	    <h5 class="card-title">みんなの教科書売買システム（仮）</h5>
 	    <p class="card-text">学生同士でやり取りしよう！（仮）</p>
-	    <a href="/tunnmals/MemberLoginServlet" class="btn btn-primary">ログインする</a>
-	    <a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-primary">出品一覧</a>
 
 	  </div>
 	</div>
-</div>
+	    <a href="/tunnmals/MemberLoginServlet" class="btn btn-success">ログインする</a>
+	    <a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-info">出品一覧</a>
+
+	</div>
 	<div class="dropdown">
 	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	    早速はじめる

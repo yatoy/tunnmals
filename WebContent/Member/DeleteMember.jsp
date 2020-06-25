@@ -12,9 +12,7 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 	</div>
 
@@ -29,7 +27,7 @@
 	<input type="password" name="password" placeholder="パスワード"><br>
 	<br>
 	<input type="hidden" name="action" value="check">
-	<input type="submit" value="退会確認画面へ">
+	<input type="submit"  class="btn btn-danger" value="退会確認画面へ">
 	</div>
 </form>
 <br>

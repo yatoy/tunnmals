@@ -128,7 +128,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		MemberBeans bean = new MemberBeans(id, family_name, first_name, postal, address, tel, email,
 				birthday, password, register_date, change_date);
 		bean = dao.update(bean);
-		gotoPage(request, response, "/Member/MemberRegisterComplete.jsp");
+		gotoPage(request, response, "/Member/MemberUpdateComplete.jsp");
 	}
 
 	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page)

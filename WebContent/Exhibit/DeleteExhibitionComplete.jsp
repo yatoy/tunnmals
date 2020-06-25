@@ -24,9 +24,9 @@
 		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
-	</div>
 出品情報を削除しました。<br>
 <a href="/tunnmals/ExhibitDisplayServlet">出品一覧に戻る</a>
+</div>
 </div>
 </body>
 </html>

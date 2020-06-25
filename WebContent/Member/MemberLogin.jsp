@@ -15,27 +15,25 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 	</div>
 
 
 	<div class="text-center">
-	<h2>ログインしてください</h2>
+	<h4>ログインしてください</h4>
 
 	<form action="/tunnmals/MemberLoginServlet" method="post">
 	<input type="text" name="id" placeholder="会員ID"><br>
 	<input type="password" name="password" placeholder="パスワード"><br>
 	<input type="hidden" name="action" value="login">
-	<input type="submit" value="ログイン">
+	<input type="submit"  class="btn btn-info" value="ログイン">
 	</form>
 
 	<br>
 	初めての方はこちら
 	<form action="/tunnmals/MemberRegisterServlet" method="get">
-	<input type="submit" value="新規会員登録">
+	<input type="submit"  class="btn btn-success" value="新規会員登録">
 	</form>
 	</div>
 	<br>

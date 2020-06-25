@@ -16,12 +16,15 @@
 		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
-	</div>
 
-ご利用ありがとうございました。
-<br>
-<a href="/tunnmals/toppage.jsp">Study Market　トップページへ</a>
-<br>
+	ご利用ありがとうございました。
+	<br>
+	<br>
+	<a href="/tunnmals/toppage.jsp"  class="btn btn-info">Study Market　トップページへ</a>
+	<br>
+
+	<br>
+	</div>
 </div>
 </body>
 </html>
