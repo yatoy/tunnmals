@@ -38,9 +38,9 @@
 	<form action="/tunnmals/MemberRegisterServlet" method="post">
 	氏名：<input type="text" name="family_name" placeholder="氏"><input type="text" name="first_name" placeholder="名"><br>
 	郵便番号：<input type="text" name="postal" placeholder="ハイフンなし、7桁"><br>
-	住所：<input type="text" name="address" placeholder="都道府県市区町村マンション名号室"><br>
+	住所：<input type="text" name="address" size="60" placeholder="都道府県市区町村マンション名号室"><br>
 	電話番号：<input type="tel" name="tel" placeholder="***-****-****"><br>
-	Eメールアドレス：<input type="email" name="email" placeholder="sample@sample.com"><br>
+	Eメールアドレス：<input type="email" size="30" name="email" placeholder="sample@sample.com"><br>
 	生年月日：<input type="date" name="birthday" max="9999-12-31"><br>
 	設定パスワード：<input type="password" name="password1"><br>
 	設定パスワード（再確認）：<input type="password" name="password2" placeholder=""><br>
@@ -49,10 +49,9 @@
 		<div class="text-center">
 		<input type="hidden" name="action" value="check">
 		<input type="submit"  class="btn btn-success" value="登録情報の確認">
-		</form>
 		</div>
-	</div>
-
+		</form>
 </div>
+
 </body>
 </html>

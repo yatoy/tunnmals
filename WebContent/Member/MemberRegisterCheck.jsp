@@ -54,9 +54,8 @@
 					</form>
 					<a href="/tunnmals/MemberRegisterServlet" class="btn btn-default">前ページに戻る</a>
 				</div>
-
-
 		</div>
+
 	</div>
 </body>
 </html>

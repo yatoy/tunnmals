@@ -19,36 +19,36 @@
 		<h1 class="font-italic">📚 Study Market</h1>
 	  </div>
 	</div>
+	<div class="text-right">
+	<a href="/tunnmals/MemberLoginServlet" class="btn btn-success">マイページに戻る</a>
 	</div>
-	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
 
 	<c:forEach items="${myexhibit}" var="exhibit">
 	<div>
-
+		<div class="container">
+		<div class="alert alert-dark">
 		<img height="100" width="100" src="/tunnmals/noimage.png">
-		<p>タイトル</p>
-		<p>${exhibit.book_name}</p>
-		<p>ISBN番号</p>
-		<p>${exhibit.isbn}</p>
-		<p>販売価格</p>
-		<p>${exhibit.price}</p>
-		<p>著者</p>
-		<p>${exhibit.author}</p>
-		<p>状態</p>
-		<p>${exhibit.quality}</p>
-		<p>分類</p>
-		<p>${exhibit.category}</p>
+		<p>タイトル：${exhibit.book_name}</p>
+		<p>ISBN番号：${exhibit.isbn}</p>
+		<p>販売価格：${exhibit.price}</p>
+		<p>著者：${exhibit.author}</p>
+		<p>状態：${exhibit.quality}</p>
+		<p>分類：${exhibit.category}</p>
 		<form action="/tunnmals/ExhibitDeleteServlet" method="post">
 			<input type="hidden" name="action" value="check">
 			<input type="hidden" name="book_id" value="${exhibit.book_id}">
-			<input type="submit" value="削除">
+			<input type="submit" class="btn btn-danger" value="削除">
 		</form>
-		<form action="/tunnmals/Servlet" method="post">
+		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
 			<input type="hidden" name="action" value="check">
 			<input type="hidden" name="book_id" value="${exhibit.book_id}">
-			<input type="submit" value="更新">
+			<input type="submit" class="btn btn-info" value="更新">
+
 		</form>
+
+		</div>
+		</div>
 	</div>
 
 	</c:forEach>
@@ -56,23 +56,27 @@
 
 	<c:forEach items="${allexhibit}" var="exhibit">
 	<div>
+		<div class="container">
+		<div class="alert alert-info">
 		<img height="100" width="100" src="/tunnmals/noimage.png">
-		<p>タイトル</p>
-		<p>${exhibit.book_name}</p>
-		<p>ISBN番号</p>
-		<p>${exhibit.isbn}</p>
-		<p>販売価格</p>
-		<p>${exhibit.price}</p>
-		<p>著者</p>
-		<p>${exhibit.author}</p>
-		<p>状態</p>
-		<p>${exhibit.quality}</p>
-		<p>分類</p>
-		<p>${exhibit.category}</p>
+		<p>タイトル：${exhibit.book_name}</p>
+		<p>ISBN番号：${exhibit.isbn}</p>
+		<p>販売価格：${exhibit.price}</p>
+		<p>著者：${exhibit.author}</p>
+		<p>状態：${exhibit.quality}</p>
+		<p>分類：${exhibit.category}</p>
+		<form action="/tunnmals/PurchaseRegisterServlet" method="get">
+		<input type="hidden" name="book_id" value="${exhibit.book_id}">
+		<input type="submit" class="btn btn-success" value="購入">
+		</form>
+
+		</div>
+		</div>
 	</div>
 	</c:forEach>
 
 
+	</div>
 </div>
 </body>
 </html>

@@ -42,19 +42,24 @@ public class PurchaseRegisterServlet extends HttpServlet {
 			int book_id = (int) request.getAttribute("book_id");
 
 			HttpSession session = request.getSession(false);
-			int buyer_id = (Integer)session.getAttribute("id");
-			session.setAttribute("book_id", book_id);
+			if(session != null) {
+				int buyer_id = (Integer)session.getAttribute("id");
+				session.setAttribute("book_id", book_id);
 
-			MemberDao memberdao = new MemberDao();
-			MemberBeans memberbean = memberdao.searchById(buyer_id);
+				MemberDao memberdao = new MemberDao();
+				MemberBeans memberbean = memberdao.searchById(buyer_id);
 
-			ExhibitDao exhibitdao = new ExhibitDao();
-			ExhibitBeans exhibitbean = exhibitdao.searchByBookId(book_id);
+				ExhibitDao exhibitdao = new ExhibitDao();
+				ExhibitBeans exhibitbean = exhibitdao.searchByBookId(book_id);
 
-			request.setAttribute("purchase_buyer", memberbean);
-			request.setAttribute("purchase_book", exhibitbean);
+				request.setAttribute("purchase_buyer", memberbean);
+				request.setAttribute("purchase_book", exhibitbean);
 
-			gotoPage(request, response, "/Purchase/Purchase.jsp");
+				gotoPage(request, response, "/Purchase/Purchase.jsp");
+			}else {
+				gotoPage(request, response, "/Member/MemberLogin.jsp");
+
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

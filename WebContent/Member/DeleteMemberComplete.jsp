@@ -20,7 +20,7 @@
 	ご利用ありがとうございました。
 	<br>
 	<br>
-	<a href="/tunnmals/toppage.jsp"  class="btn btn-info">Study Market　トップページへ</a>
+	<a href="/tunnmals/MemberResignServlet?action=gototop"  class="btn btn-info">Study Market　トップページへ</a>
 	<br>
 
 	<br>
