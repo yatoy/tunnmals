@@ -21,19 +21,10 @@ import la.dao.ExhibitDao;
 public class ExhibitRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ExhibitRegisterServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		//		String type = request.getParameter("action");
 
 		try {
 			gotoPage(request, response, "/Exhibit/ExhibitRegister.jsp");
@@ -54,11 +45,11 @@ public class ExhibitRegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String type = request.getParameter("action");
 
-		if ("check".contentEquals(type)) {
+		if ("check".equals(type)) {
 			doCheck(request, response);
 			return;
 		}
-		if ("complete".contentEquals(type)) {
+		if ("complete".equals(type)) {
 			doComplete(request, response);
 			return;
 		}
@@ -70,7 +61,7 @@ public class ExhibitRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String book_name = request.getParameter("book_name");
 		String isbn = request.getParameter("isbn");
-		String price= request.getParameter("price");
+		String price = request.getParameter("price");
 		String author = request.getParameter("author");
 		String quality = request.getParameter("quality");
 		String book_class = request.getParameter("class");
@@ -94,14 +85,14 @@ public class ExhibitRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String book_name = request.getParameter("book_name");
 		String isbn = request.getParameter("isbn");
-		int price= Integer.parseInt(request.getParameter("price"));
+		int price = Integer.parseInt(request.getParameter("price"));
 		String author = request.getParameter("author");
 		String quality = request.getParameter("quality");
 		String book_class = request.getParameter("class");
 
 		//exhibitテーブルに追加
 		HttpSession session = request.getSession(false);
-		int seller_id = (int)session.getAttribute("id");
+		int seller_id = (int) session.getAttribute("id");
 
 		Calendar cal = Calendar.getInstance(); //[1]
 		String sell_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-"

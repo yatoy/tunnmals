@@ -32,7 +32,7 @@
 <a href="/tunnmals/ExhibitDisplayServlet">出品の表示</a>
 
 <br>
-<a href="/tunnmals/Servlet">教科書の出品</a>
+<a href="/tunnmals/ExhibitRegisterServlet">教科書の出品</a>
 
 <br>
 <a href="/tunnmals/Servlet">会員情報</a>
