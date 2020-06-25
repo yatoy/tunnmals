@@ -15,9 +15,7 @@
 <div class="card">
 	<div class="text-center">
 	<div class="card text-white bg-info mb-3">
-	  <div class="card-header">
-		<h1 class="font-italic">📚 Study Market</h1>
-	  </div>
+	<%@ include file="/header.jsp"%>
 	</div>
 	<div class="text-right">
 	<a href="/tunnmals/MemberLoginServlet" class="btn btn-success">マイページに戻る</a>
@@ -65,8 +63,9 @@
 		<p>著者：${exhibit.author}</p>
 		<p>状態：${exhibit.quality}</p>
 		<p>分類：${exhibit.category}</p>
-		<form action="/tunnmals/PurchaseRegisterServlet" method="get">
+		<form action="/tunnmals/PurchaseRegisterServlet" method="post">
 		<input type="hidden" name="book_id" value="${exhibit.book_id}">
+		<input type="hidden" name="action" value="check">
 		<input type="submit" class="btn btn-success" value="購入">
 		</form>
 
