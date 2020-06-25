@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
 
-%>
 
 <!DOCTYPE html>
 <html>
@@ -29,29 +27,29 @@
 		<div class="alert alert-dark">
 			以下の情報でよろしいですか？
 		</div>
-		<form action="/tunnmals/ExhibitRegisterServlet" method="post">
-
-			商品情報<br>
+		<div>
+			<h2>商品情報</h2>
 			<div>
 			<img height="100" width="100" src="/tunnmals/noimage.png">
 			<p>ISBN番号</p>
-			<p>5555555567</p>
+			<p>${exhibit.isbn}</p>
 			<p>タイトル</p>
-			<p>******</p>
+			<p>${exhibit.book_name}</p>
 			<p>著者</p>
-			<p>*****</p>
+			<p>${exhibit.author}</p>
 			<p>分類</p>
-			<p>*****</p>
+			<p>${exhibit.category}</p>
 			<p>状態</p>
-			<p>*****</p>
+			<p>${exhibit.quality}</p>
 			<p>価格</p>
-			<p>*******</p>
+			<p>${exhibit.price}</p>
 			</div>
-			<input type="hidden" name="action" value="exhibition">
-			<input class="btn btn-success" type="submit" value="出品する">
+			<form action="/tunnmals/ExhibitRegisterServlet" method="post">
+				<input type="hidden" name="action" value="complete">
+				<input class="btn btn-success" type="submit" value="出品する">
 
-		</form>
-
+			</form>
+		</div>
 	</div>
 </div>
 </body>

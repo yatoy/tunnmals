@@ -102,7 +102,7 @@ public class MemberLoginServlet extends HttpServlet {
 					session.invalidate();
 
 					//トップページに遷移
-					RequestDispatcher rd = request.getRequestDispatcher("/toppage.html");
+					RequestDispatcher rd = request.getRequestDispatcher("/toppage.jsp");
 					rd.forward(request, response);
 				}
 			}

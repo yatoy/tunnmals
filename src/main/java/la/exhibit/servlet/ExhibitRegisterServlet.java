@@ -61,14 +61,21 @@ public class ExhibitRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String book_name = request.getParameter("book_name");
 		String isbn = request.getParameter("isbn");
-		String price = request.getParameter("price");
+		String price_string = request.getParameter("price");
 		String author = request.getParameter("author");
 		String quality = request.getParameter("quality");
 		String book_class = request.getParameter("class");
 
+		Calendar cal = Calendar.getInstance();
+		String sell_date = cal.get(Calendar.YEAR)
+				+ "-"
+				+ (cal.get(Calendar.MONTH) + 1)
+				+ "-"
+				+ cal.get(Calendar.DATE);
+
 		if (book_name == null || "".equals(book_name)
 				|| isbn == null || "".equals(isbn)
-				|| price == null || "".equals(price)
+				|| price_string == null || "".equals(price_string)
 				|| author == null || "".equals(author)
 				|| quality == null || "".equals(quality)
 				|| book_class == null || "".equals(book_class)) {
@@ -77,40 +84,64 @@ public class ExhibitRegisterServlet extends HttpServlet {
 			return;
 		}
 
-		gotoPage(request, response, "/Exhibit/ExhibitRegisterCheck.jsp");
+		HttpSession session = request.getSession(false);
+
+		if (session != null && (session.getAttribute("id")) != null) {
+			int price = 0;
+			try {
+				price = Integer.parseInt(price_string);
+			} catch (Exception e) {
+				gotoPage(request, response, "/tunnmals/ExhibitRegisterServlet");
+			}
+
+			ExhibitBeans bean = new ExhibitBeans(
+					book_name,
+					isbn,
+					price,
+					author,
+					quality,
+					book_class,
+					(int) session.getAttribute("id"),
+					sell_date);
+
+			session.setAttribute("exhibit", bean);
+			gotoPage(request, response, "/Exhibit/ExhibitRegisterCheck.jsp");
+		} else {
+			gotoPage(request, response, "/Member/MemberLogin.jsp");
+
+		}
 
 	}
 
 	protected void doComplete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String book_name = request.getParameter("book_name");
-		String isbn = request.getParameter("isbn");
-		int price = Integer.parseInt(request.getParameter("price"));
-		String author = request.getParameter("author");
-		String quality = request.getParameter("quality");
-		String book_class = request.getParameter("class");
 
-		//exhibitテーブルに追加
 		HttpSession session = request.getSession(false);
-		int seller_id = (int) session.getAttribute("id");
+		if (session != null && (session.getAttribute("id")) != null) {
 
-		Calendar cal = Calendar.getInstance(); //[1]
-		String sell_date = cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH) + 1) + "-"
-				+ cal.get(Calendar.DATE);
+			ExhibitDao dao = new ExhibitDao();
 
-		ExhibitDao dao = new ExhibitDao();
-		ExhibitBeans bean = new ExhibitBeans(book_name, isbn, price, author, quality, book_class,
-				seller_id, sell_date);
-		bean = dao.add(bean);
-		int id = bean.getBook_id();
-		request.setAttribute("book_id", id);
-		gotoPage(request, response, "/Exhibit/ExhibitRegisterComplete.jsp");
+			ExhibitBeans bean = (ExhibitBeans) session.getAttribute("exhibit");
+			bean = dao.add(bean);
+
+			if (bean == null) {
+				request.setAttribute("message", "内部エラーが発生しました。");
+				gotoPage(request, response, "/errInternal.jsp");
+			}
+
+			session.removeAttribute("exhibit");
+			gotoPage(request, response, "/Exhibit/ExhibitRegisterComplete.jsp");
+		} else {
+			gotoPage(request, response, "/Member/MemberLogin.jsp");
+		}
+
 	}
 
 	private void gotoPage(HttpServletRequest request, HttpServletResponse response, String page)
 			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
+		return;
 	}
 
 }

@@ -70,6 +70,7 @@
 
 			<br>
 			<div class="text-center">
+			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
 			</div>
 			<br>
