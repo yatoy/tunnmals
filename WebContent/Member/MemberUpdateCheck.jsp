@@ -45,9 +45,7 @@
 				<p>
 					生年月日 : ${member.birthday}
 				</p>
-				<p>
-					設定パスワード : ${member.password}
-				</p>
+
 
 				<div class="text-center">
 					<form action="/tunnmals/MemberUpdateServlet" method="post">
