@@ -19,6 +19,8 @@
 	<a href="/tunnmals/AdminLoginServlet" class="btn btn-dark">管理者用ページに戻る</a>
 	<br>
 		<br>
+			全${exhibits_size}件
+			<br>
 	<c:forEach items="${exhibits}" var="exhibit">
 	<div>
 	<div class="container">

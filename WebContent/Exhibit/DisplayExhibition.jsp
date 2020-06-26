@@ -18,7 +18,7 @@
 	<%@ include file="/header.jsp"%>
 	</div>
 	<div class="text-right">
-	<a href="/tunnmals/MemberLoginServlet" class="btn btn-success">マイページに戻る</a>
+	<a href="/tunnmals/MemberLoginServlet" class="btn btn-success">マイページへ</a>
 	</div>
 	<br>
 
@@ -51,7 +51,7 @@
 
 	</c:forEach>
 
-
+	全${allexhibit_size}件
 	<c:forEach items="${allexhibit}" var="exhibit">
 	<div>
 		<div class="container">

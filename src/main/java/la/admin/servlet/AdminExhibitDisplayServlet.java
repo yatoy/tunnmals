@@ -40,6 +40,7 @@ public class AdminExhibitDisplayServlet extends HttpServlet {
 
 				List<ExhibitBeans> list = dao.searchAll();
 				request.setAttribute("exhibits", list);
+				request.setAttribute("exhibits_size", list.size());
 
 				RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminDisplayExhibition.jsp");
 				rd.forward(request, response);

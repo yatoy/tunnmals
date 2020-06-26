@@ -49,11 +49,13 @@ public class ExhibitDisplayServlet extends HttpServlet {
 				List<ExhibitBeans> mylist = dao.searchBySellerId(sellerid);
 				request.setAttribute("myexhibit", mylist);
 				list_all = dao.searchByNotSellerId(sellerid);
+
 			} else {
 				list_all = dao.searchAll();
 			}
 
 			request.setAttribute("allexhibit", list_all);
+			request.setAttribute("allexhibit_size", list_all.size());
 
 			//出品表示
 			RequestDispatcher rd = request.getRequestDispatcher("/Exhibit/DisplayExhibition.jsp");
