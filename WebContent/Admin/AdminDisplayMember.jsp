@@ -17,7 +17,7 @@
 	<%@ include file="/header.jsp"%>
 	</div>
 	<a href="/tunnmals/AdminLoginServlet" class="btn btn-dark">管理者用ページに戻る</a>
-<br><br>
+	<%@ include file="/logoutAdmin.jsp"%>
 	<c:forEach items="${members}" var="member">
 		<div>
 			<div class="container">

@@ -17,6 +17,7 @@
 	<%@ include file="/header.jsp"%>
 	</div>
 	<a href="/tunnmals/AdminLoginServlet" class="btn btn-dark">管理者用ページに戻る</a>
+	<%@ include file="/logoutAdmin.jsp"%>
 	<br>
 		<br>
 			全${exhibits_size}件

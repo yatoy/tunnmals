@@ -17,7 +17,8 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	<a href="/tunnmals/AdminLoginServlet">管理者用ページに戻る</a>
+	<a href="/tunnmals/AdminLoginServlet" class="btn btn-dark">管理者用ページに戻る</a>
+	<%@ include file="/logoutAdmin.jsp"%>
 	<br>
 	<c:forEach items="${exhibits}" var="exhibit">
 	<div>
