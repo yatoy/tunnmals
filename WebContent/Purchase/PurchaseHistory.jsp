@@ -17,29 +17,26 @@
 	<%@ include file="/header.jsp"%>
 	</div>
 	<%@ include file="/logout.jsp"%>
-	</div>
 	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
 	<br>
 	あなたの購入履歴<br>
 	<c:forEach items="${purchase_history}" var="exhibit">
-	<div>
+	<div class="container">
+		<div class="alert alert-info">
 		<img height="100" width="100" src="/tunnmals/noimage.png">
-		<p>購入日</p>
-		<p>${exhibit.buy_date}</p>
-		<p>ISBN番号</p>
-		<p>${exhibit.isbn}</p>
-		<p>タイトル</p>
-		<p>${exhibit.book_name}</p>
-		<p>分類</p>
-		<p>${exhibit.category}</p>
-		<p>状態</p>
-		<p>${exhibit.quality}</p>
-		<p>価格</p>
-		<p>${exhibit.price}</p>
+		<br>
+		<br>
 
+		<p>購入日：${exhibit.buy_date}</p>
+		<p>タイトル：${exhibit.book_name}</p>
+		<p>ISBN番号：${exhibit.isbn}</p>
+		<p>分類：${exhibit.category}</p>
+		<p>状態：${exhibit.quality}</p>
+		<p>価格：${exhibit.price}</p>
+		</div>
 	</div>
 	</c:forEach>
-
+	</div>
 </div>
 </body>
 </html>

@@ -23,7 +23,7 @@
 	<%@ include file="/header.jsp"%>
 	</div>
 	出品しました。<br>
-	<a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-success">出品一覧に戻る</a>
+	<a href="/tunnmals/ExhibitDisplayServlet" class="btn btn-success">出品一覧へ</a>
 	</div>
 </div>
 </body>
