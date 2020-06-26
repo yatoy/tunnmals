@@ -55,10 +55,7 @@
 					設定パスワード（再確認）：
 					<input type="password" name="password2">
 				</p>
-				<p>
-				現在のパスワード：
-				${member.password}
-				</p>
+
 
 				<div class="text-center">
 					<input type="hidden" name="register_date" value="${member.register_date}">
