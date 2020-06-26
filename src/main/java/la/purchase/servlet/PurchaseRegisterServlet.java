@@ -40,10 +40,10 @@ public class PurchaseRegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		try {
-			int book_id = Integer.parseInt(request.getParameter("book_id"));
 
 			HttpSession session = request.getSession(false);
-			if (session != null) {
+			if (session != null && session.getAttribute("id") != null) {
+				int book_id = Integer.parseInt(request.getParameter("book_id"));
 				int buyer_id = (Integer) session.getAttribute("id");
 				session.setAttribute("book_id", book_id);
 
