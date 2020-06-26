@@ -99,9 +99,9 @@ public class AdminLoginServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("message", "内部エラーが発生しました。");
-			RequestDispatcher rd = request.getRequestDispatcher("/errInternal.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Admin/AdminLogin.jsp");
 			rd.forward(request, response);
+			return;
 		}
 	}
 
