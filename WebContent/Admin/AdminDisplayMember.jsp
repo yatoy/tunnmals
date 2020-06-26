@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Login</title>
+<title>会員一覧</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -16,30 +16,30 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	</div>
-	<a href="/tunnmals/AdminLoginServlet">管理者用ページに戻る</a>
-
+	<a href="/tunnmals/AdminLoginServlet" class="btn btn-dark">管理者用ページに戻る</a>
+<br><br>
 	<c:forEach items="${members}" var="member">
 		<div>
+			<div class="container">
+			<div class="alert alert-dark">
 			<img height="100" width="100" src="/tunnmals/noimage.png">
-			<p>名前</p>
-			<p>${member.family_name}${member. first_name}</p>
-			<p>住所</p>
-			<p>${member.address}</p>
-			<p>電話番号</p>
-			<p>${member.tel}</p>
-			<p>メールアドレス</p>
-			<p>${member.email}</p>
-			<p>生年月日</p>
-			<p>${member.birthday}</p>
+			<p>会員ID：${member.id}</p>
+			<p>名前：${member.family_name}${member. first_name}</p>
+			<p>住所：〒${member.postal}　${member.address}</p>
+			<p>電話番号：${member.tel}</p>
+			<p>メールアドレス：${member.email}</p>
+			<p>生年月日：${member.birthday}</p>
+			</div>
+		</div>
 			<form action="/tunnmals/AdminResignServlet" method="post">
 				<input type="hidden" name="id" value="${member.id}">
 				<input type="hidden" name="action" value="Admincheck">
-				<input type="submit" value="削除">
+				<input type="submit" class="btn btn-danger" value="削除">
 			</form>
 		</div>
+		<br><br>
 	</c:forEach>
-
+</div>
 </div>
 
 

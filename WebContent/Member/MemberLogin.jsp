@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログイン画面</title>
+<title>Member Login</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
@@ -24,11 +24,7 @@
 	<div class="text-center">
 
 		<%
-			String type = request.getParameter("error");
 			String message = "ログインしてください";
-			if ("check".equals(type)) {
-				message = "IDまたはパスワードが間違っています";
-			}
 		%>
 		<div class="container">
 			<div class="alert alert-dark">

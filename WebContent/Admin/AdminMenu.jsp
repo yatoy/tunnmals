@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Login</title>
+<title>Admin Menu</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -15,14 +15,14 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
+<a href="/tunnmals/MemberListServlet"  class="btn btn-dark">全会員の表示</a>
+<br><br>
+<a href="/tunnmals/AdminExhibitDisplayServlet" class="btn btn-dark">出品の表示</a>
+<br><br>
+<a href="/tunnmals/AdminPurchaseDisplayServlet" class="btn btn-dark">購入履歴の表示</a>
+<br><br>
+
 	</div>
-<h1>Study Market</h1>
-<a href="/tunnmals/MemberListServlet">全会員の表示</a>
-<br>
-<a href="/tunnmals/AdminExhibitDisplayServlet">出品の表示</a>
-<br>
-<a href="/tunnmals/AdminPurchaseDisplayServlet">購入履歴の表示</a>
-<br>
 </div>
 </body>
 </html>

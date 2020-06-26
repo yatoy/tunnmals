@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Login</title>
+<title>出品の削除（管理者）</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -15,26 +15,34 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	</div>
-	<h2>本当に削除しますか？</h2>
+		<div class="container">
+			<div class="alert alert-dark">
+				本当に削除しますか？
+			</div>
+		</div>
 	<br>
 	<div>
+	<div class="container">
+		<div class="alert alert-dark">
 		<img height="100" width="100" src="/tunnmals/noimage.png">
-		<p>タイトル</p>
-		<p>ISBN番号</p>
-		<p>販売価格</p>
-		<p>著者</p>
-		<p>状態</p>
-		<p>分類</p>
+		<p>タイトル：${exhibit.book_name}</p>
+		<p>ISBN番号：${exhibit.isbn}</p>
+		<p>販売価格：${exhibit.price}</p>
+		<p>著者：${exhibit.author}</p>
+		<p>状態：${exhibit.quality}</p>
+		<p>分類：${exhibit.category}</p>
+	</div>
+	</div>
 	</div>
 	<form action="/tunnmals/AdminDeleteExhibitServlet" method="post">
 		<input type="hidden" name="action" value="complete">
-		<input type="submit" value="削除">
+		<input type="submit" class="btn btn-danger" value="削除">
 	</form>
 
-	<a href="/tunnmals/AdminExhibitDisplayServlet">キャンセル</a>
+	<a href="/tunnmals/AdminExhibitDisplayServlet" class="btn btn-success">キャンセル</a>
 
 
+	</div>
 </div>
 </body>
 </html>

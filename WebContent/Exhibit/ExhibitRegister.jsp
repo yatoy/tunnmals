@@ -52,17 +52,17 @@
 			<br>
 			分類（必須）：<select name="class">
 			<option value="null">選択してください</option>
-			<option value="0">文学部系 </option>
-			<option value="1">教育学部系</option>
-			<option value="2">法学部系</option>
-			<option value="3">社会学部系</option>
-			<option value="4">経済学部系</option>
-			<option value="5">理学部系</option>
-			<option value="6">医学部系</option>
-			<option value="7">歯学部系</option>
-			<option value="8">薬学部系</option>
-			<option value="9">工学部系</option>
-			<option value="10">農学部系</option>
+			<option value="文学部系">文学部系 </option>
+			<option value="教育学部系">教育学部系</option>
+			<option value="法学部系">法学部系</option>
+			<option value="社会学部系">社会学部系</option>
+			<option value="経済学部系">経済学部系</option>
+			<option value="理学部系">理学部系</option>
+			<option value="医学部系">医学部系</option>
+			<option value="歯学部系">歯学部系</option>
+			<option value="薬学部系">薬学部系</option>
+			<option value="工学部系">工学部系</option>
+			<option value="農学部系">農学部系</option>
 			</select>
 			<br>
 

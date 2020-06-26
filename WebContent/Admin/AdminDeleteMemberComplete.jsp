@@ -15,12 +15,12 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
+	削除しました
+<br><br>
+	<a href="/tunnmals/MemberListServlet" class="btn btn-dark">全会員の表示へ戻る</a>
+
+
 	</div>
-	<h2>削除しました</h2>
-
-	<a href="/tunnmals/MemberListServlet">全会員の表示へ戻る</a>
-
-
 </div>
 </body>
 </html>

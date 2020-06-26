@@ -15,18 +15,16 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	</div>
 <form action="/tunnmals/AdminLoginServlet" method="post">
-	ユーザーID :
-	<input type="text" name="id">
-	<br>
-	パスワード :
-	<input type="text" name="password">
+	<input type="text" name="id" placeholder="管理者ID"><br>
+	<input type="password" name="password" placeholder="パスワード"><br>
 	<input type="hidden" name="action" value="login">
 	<br>
-	<input type="submit" value="ログイン">
+	<input type="submit" class="btn btn-dark" value="ログイン">
 
 </form>
+
+	</div>
 </div>
 </body>
 </html>

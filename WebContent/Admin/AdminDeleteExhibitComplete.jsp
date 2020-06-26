@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Login</title>
+<title>出品削除完了（管理者）</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -15,11 +15,11 @@
 	<div class="card text-white bg-danger mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
+	削除しました
+<br><br>
+	<a href="/tunnmals/AdminExhibitDisplayServlet" class="btn btn-dark">全出品の表示へ戻る</a>
+
 	</div>
-	<h2>削除しました</h2>
-
-	<a href="/tunnmals/AdminExhibitDisplayServlet">全出品の表示へ戻る</a>
-
 </div>
 
 </body>
