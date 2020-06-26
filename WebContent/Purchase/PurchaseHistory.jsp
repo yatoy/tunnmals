@@ -16,8 +16,7 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	<%@ include file="/logout.jsp"%>
-	<a href="/tunnmals/MemberLoginServlet">マイページに戻る</a>
+	<%@ include file="/gotomypage.jsp"%>
 	<br>
 	あなたの購入履歴<br>
 	<c:forEach items="${purchase_history}" var="exhibit">

@@ -24,8 +24,8 @@
 	<%@ include file="/header.jsp"%>
 	</div>
 	</div>
-
-
+	<%@ include file="/gotomypage.jsp"%>
+	<br>
 	<div class="container">
 		<div class="alert alert-dark">
 		以下の情報を入力してください。<br>

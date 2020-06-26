@@ -17,9 +17,7 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	<div class="text-right">
-	<a href="/tunnmals/MemberLoginServlet" class="btn btn-success">マイページへ</a>
-	</div>
+	<%@ include file="/gotomypage.jsp"%>
 	<br>
 
 	<c:forEach items="${myexhibit}" var="exhibit">

@@ -16,9 +16,13 @@
 			<div class="card text-white bg-info mb-3">
 				<%@ include file="/header.jsp"%>
 			</div>
-
-			<h1>会員情報表示</h1>
-			<div>
+				<%@ include file="/gotomypage.jsp"%>
+	<div class="container">
+		<div class="alert alert-dark">
+			会員情報表示
+		</div>
+	</div>
+		<div>
 				<label>ID</label>
 				：${member.id}
 			</div>
