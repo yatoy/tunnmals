@@ -22,12 +22,14 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	</div>
 	<div class="container">
 		<div class="alert alert-dark">
 		変更する内容を入力してください。<br>
 		</div>
+
 		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
+			<div class="container">
+		<div class="alert alert-dark">
 			<p>
 				画像：<img height="100" width="100" src="/tunnmals/noimage.png">
 			</p>
@@ -70,12 +72,15 @@
 					<option value="農学部系">農学部系</option>
 				</select>
 			</p>
+			</div>
+			</div>
 			<input type="hidden" name="book_id" value="${exhibit.book_id}">
 			<input type="hidden" name="sell_date" value="${exhibit.sell_date}">
 			<input type="hidden" name="action" value="check">
 			<input class="btn btn-success" type="submit" value="確認画面へ">
 		</form>
 
+	</div>
 	</div>
 </div>
 </body>

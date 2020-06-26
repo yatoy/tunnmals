@@ -22,34 +22,31 @@
 	<div class="card text-white bg-info mb-3">
 	<%@ include file="/header.jsp"%>
 	</div>
-	</div>
 	<div class="container">
 		<div class="alert alert-dark">
 			以下の情報でよろしいですか？
 		</div>
 		<form action="/tunnmals/ExhibitUpdateServlet" method="post">
-
+	<div class="container">
+		<div class="alert alert-dark">
 			商品情報<br>
 			<div>
 			<img height="100" width="100" src="/tunnmals/noimage.png">
-			<p>ISBN番号</p>
-			<p>${exhibit.isbn}</p>
-			<p>タイトル</p>
-			<p>${exhibit.book_name}</p>
-			<p>著者</p>
-			<p>${exhibit.author}</p>
-			<p>分類</p>
-			<p>${exhibit.category}</p>
-			<p>状態</p>
-			<p>${exhibit.quality}</p>
-			<p>価格</p>
-			<p>${exhibit.price}</p>
+			<p>タイトル：${exhibit.book_name}</p>
+			<p>ISBN番号：${exhibit.isbn}</p>
+			<p>著者：${exhibit.author}</p>
+			<p>価格：${exhibit.price}</p>
+			<p>状態：${exhibit.quality}</p>
+			<p>分類：${exhibit.category}</p>
+			</div>
+			</div>
 			</div>
 			<input type="hidden" name="action" value="complete">
 			<input class="btn btn-success" type="submit" value="更新する">
 
 		</form>
 
+	</div>
 	</div>
 </div>
 </body>

@@ -22,11 +22,11 @@
 			<div class="card text-white bg-info mb-3">
 				<%@ include file="/header.jsp"%>
 			</div>
-		</div>
 		出品しました。
 
-		<a href="/tunnmals/ExhibitDisplayServlet">出品一覧に戻る</a>
+		<a href="/tunnmals/ExhibitDisplayServlet" classs="btn btn-success">出品一覧に戻る</a>
 	</div>
+</div>
 
 </body>
 </html>
