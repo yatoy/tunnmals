@@ -49,7 +49,7 @@
 			<p>
 				状態（必須）：
 				<select name="quality">
-					<option value="null">選択してください</option>
+					<option value="${exhibit.quality}">未変更</option>
 					<option value="新品">新品</option>
 					<option value="未使用">未使用</option>
 					<option value="中古">中古</option>
@@ -58,7 +58,7 @@
 			<p>
 				分類（必須）：
 				<select name="class">
-					<option value="null">選択してください</option>
+					<option value="${exhibit.category}">未変更</option>
 					<option value="文学部系">文学部系 </option>
 					<option value="教育学部系">教育学部系</option>
 					<option value="法学部系">法学部系</option>
